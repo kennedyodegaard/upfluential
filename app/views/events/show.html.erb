@@ -1,1 +1,44 @@
 show.html.erb
+
+<div class="container">
+  <div class="page-container">
+    <div class="show-title">
+    </div>
+      <% if @event.photo.attached? %>
+           <img src="<%= cl_image_path @event.photo.key %>" id="show-image">
+          <% else %>
+           <img src="https://images.unsplash.com/photo-1561026555-13539e82532f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=967&q=80" id="show-image">
+          <% end %>
+      <div class="description-booking">
+        <div class="description">
+        <div class="description-edit d-flex justify-content-between">
+          <h1><%= @event.title %></h1>
+          <div class="icons">
+            <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, event_path(@event), method: :delete,
+            data: { confirm: "Are you sure?" }%>
+          <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_flat_path(@flat) %>
+          </div>
+        </div>
+          <p><i class="fas fa-star"></i> 4.8 <%= @flat.location %></p>
+          <p><i class="fas fa-user-astronaut"></i> <%= @event.users %> guests - <i class="fas fa-bed"></i>  <%= @flat.bedrooms %> bedrooms - <i class="fas fa-toilet"></i>  <%= @flat.bathrooms %> bathrooms</p>
+          <hr>
+          <p><%= @flat.description %></p>
+        </div>
+          <div class="booking">
+            <div class="container">
+              <div class="form-wrapper" style="margin: 0 auto;">
+                <h3>Reserve your luxury home</h3>
+                <p>Give us some details first.</p>
+                <%= simple_form_for [@flat, @reservation] do |f| %>
+                  <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+                        <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+                  <h5 class="mt-4 mb-4">Total: $<%= number_with_delimiter(@flat.price, :delimiter => ',') %></h5>
+                  <%= f.button :submit, "Reserve", class: "btn btn-primary" %>
+                <% end %>
+              </div>
+            </div>
+         </div>
+      </div>
+     </div>
+  </div>
+</div>
