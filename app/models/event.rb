@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :user
   belongs_to :organization
-  has_many_attached :photos  
+  has_many_attached :photos
   include PgSearch::Model
   pg_search_scope :search_by_location,
     against: [:location],
