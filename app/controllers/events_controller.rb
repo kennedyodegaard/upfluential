@@ -6,4 +6,49 @@ class EventsController < ApplicationController
       @events = Event.all
     end
   end
+
+  def show
+    @event = Event.find(params[:id])
+  end
+
+  def new
+    @event = Event.new
+  end
+
+  def create
+    @event = Event.new(set_event_params)
+    @event.user = current_user
+    if @event.save
+      redirect_to event_path(@event)
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    @event.update(set_event_params)
+    @event.user = current_user
+    if @event.save
+      redirect_to event_path(@event)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to events_path
+  end
+
+  private
+
+  def set_event_params
+    params.require(:event).permit(:title, :photo, :description, :location, :category, :start_time, :end_time, :capacity)
+  end
 end
