@@ -62,3 +62,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Kennedy added this...
 gem "cloudinary", "~> 1.18"
+gem 'dotenv-rails', groups: [:development, :test]
