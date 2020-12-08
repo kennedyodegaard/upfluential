@@ -5,3 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
+
+Organization.destroy_all
+Event.destroy_all
+User.destroy_all
+
+# user 
+user1 = User.create!(first_name: "", last_name: "", email: "", password: "", bio:"")
+user_avatar1 = Uri.open()
+user1.photo.attach(io: user_avatar1, filename: "user_avatar1.png", content_type: "image/png")
+# organization 
+organization1 = Organization.new(name: "", website: "", description: "", location: "", user: "")
+organization_logo1 = Uri.open()
+organization1.photo.attach(io: organization_logo1, filename: "organization_logo1.png", content_type: "image/png")
+organization1.save
+# event
+event1 = Event.new(title: "", photo: "", description: "", location: "", category: "", start_time: "", end_time: "", user: "", organization: "")
+event_photo1 = Uri.open()
+event1.photo.attach(io: event_photo1, filename: "event_photo1.png", content_type: "image/png")
+event1.save
+
+
