@@ -1,0 +1,10 @@
+<div class=show-banner-img>
+  <% if @organization.photos.attached? %>
+    <img src="<%= cl_image_path @organization.photos.first.key %>" id="show-image">
+  <% else %>
+    <img src="https://images.unsplash.com/photo-1561026555-13539e82532f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=967&q=80" id="show-image">
+  <% end %>
+</div>
+<div>
+    <h1><%= @organization.name %></h1>
+</div>
