@@ -17,9 +17,12 @@
 
 
 
-
-
-
+<% unless @event.is_full? %>
+<%= simple_form_for [@event, @booking] do |f| %>
+  <%= f.input :attending, as: :hidden, input_html: {value: true} %>
+  <%= f.button :submit %>
+<% end %>
+<% end %>
 
 
 
