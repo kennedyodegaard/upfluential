@@ -15,10 +15,10 @@ class Event < ApplicationRecord
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
   validates :category, inclusion: { in: ["community", "environment", "youth", "seniors", "animals", "LGBTQ+", "culture", "outdoors", "indoors", "virtual", "sports"] }
-  
-  
+
+
   def available_spots
-    self.capacity - self.bookings.count
+    (self.capacity - self.bookings.count)
   end
   # def self.is_full? -> Event.is_full?
   def is_full? # Event.last.is_full? -> self == Event.last
