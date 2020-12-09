@@ -7,18 +7,17 @@ class EventsController < ApplicationController
     else
       @events = Event.all
     end
-
-     @markers = @events.geocoded.map do |event|
-      {
-        lat: event.latitude,
-        lng: event.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { event: event })
-      }
-    end
   end
 
   def show
     @event = Event.find(params[:id])
+
+     @markers = [{
+      lat: @event.latitude,
+      lng: @event.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { event: @event }),
+      image_url: helpers.asset_url('https://res.cloudinary.com/kennedyodegaard/image/upload/v1607525650/Grouppinpoint_i8hcsk.png')
+    }]
   end
 
   def new
