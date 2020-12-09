@@ -21,7 +21,7 @@
       <div class="col-md-4">
         <div class="card mb-4" style="box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
   border-radius: 16px;">
-          <% if event.photo.attached? %>
+          <% if event.photos.attached? %>
            <img src="<%= cl_image_path event.photo.key %>" alt="..." style="height: 220px" id="round-top">
           <% else %>
            <img src="https://images.unsplash.com/photo-1561026555-13539e82532f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=967&q=80" class="card-img-top" alt="..." style="height: 220px;">
@@ -43,3 +43,8 @@
       <% end  %>
     </div>
 </div>
+
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
