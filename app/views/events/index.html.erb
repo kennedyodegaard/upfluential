@@ -1,50 +1,43 @@
-<div class="container">
-  <div class="banner">
-    <h3>Missions in location</h3>
+<div class="banner">
+  <%= render 'shared/logo-login-purple' %>
+  <h4>Missions in location</h4>
+  <div class="main-container">
     <div class="search-form">
        <%= form_tag events_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
-          class: "form-control rounded-search mb-2",
-          placeholder: "Introduce your city"%>
+          class: "form-control rounded-search mb-4", placeholder: ""%>
         <% end %>
     </div>
-  </div>
-  <div class="details-filter d-flex">
-    <p>250 missions found</p>
-    <p>Filter<i class="filter"></i></p>
-  </div>
-  <div class="pills d-flex">
-    <div class="pill">
-      <p>category</p>
+    <div class="details-filter">
+      <p>250 missions found</p>
+      <p>Filter<img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607526430/filter_iconfilter_sxm5zf.png"></p>
     </div>
-    <div class="pill">
-      <p>category</p>
+    <div class="pills">
+        <p class="pill-white">LGBTQ+</p>
+        <p class="pill-purple">animals</p>
+        <p class="pill-purple">senior</p>
+        <p class="pill-white">more</p>
     </div>
-    <div class="pill">
-      <p>category</p>
+    <% @events.each do |event|  %>
+      <div class="event-card">
+        <% if event.photos.attached? %>
+           <img src="<%= cl_image_path event.photos.first.key %>" alt="..." id="event-image">
+          <% else %>
+           <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607524305/nx5c2nwp3ragtvuihxeui53bqcph.jpg" id="event-image">
+          <% end %>
+        <div class="card-information">
+          <div class="card-info">
+            <p><i class="far fa-calendar-alt"></i>  <%= event.start_time.strftime("%A, %b %d") %></p>
+            <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607513661/Vectorheart_bx0iai.png" id="heart">
+          </div>
+          <h6><%= event.title %></h6>
+          <div class="card-info2">
+            <p><%= event.user.first_name %> <%= event.user.last_name %></p>
+            <p><%= event.capacity %> spots</p>
+          </div>
+        </div>
     </div>
-    <div class="pill">
-      <p>category</p>
-    </div>
-  </div>
-  <div class="card-container">
-
-    <div class="card d-flex">
-      <div class="card-info">
-        <p><i class="calendar"></i>15th DEC, 17:00</p>
-        <h5>Beach Cleanup</h5>
-        <p>Amigos de la playa</p>
-      </div>
-      <div class="card-info2 d-flex-column justify-content-between">
-        <i class="heart"></i>
-        <p>3 spots</p>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
-
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
