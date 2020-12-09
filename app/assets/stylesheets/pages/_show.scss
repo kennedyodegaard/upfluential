@@ -1,6 +1,11 @@
-.show-banner-img {
+.show-banner-img{
+  width: 100%;
+  background-position:center top;
+  display: table;
   position: relative;
+  background: linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%);
 }
+
 
 .show-banner-content {
   position: absolute;
@@ -9,3 +14,4 @@
   color: white;
   opacity: 0.8;
 }
+
