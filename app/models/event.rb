@@ -16,9 +16,12 @@ class Event < ApplicationRecord
     }
   validates :category, inclusion: { in: ["community", "environment", "youth", "seniors", "animals", "LGBTQ+", "culture", "outdoors", "indoors", "virtual", "sports"] }
   
-
+  
+  def available_spots
+    self.capacity - self.bookings.count
+  end
   # def self.is_full? -> Event.is_full?
   def is_full? # Event.last.is_full? -> self == Event.last
-    self.capacity - self.bookings.count <= 0
+    self.available_spots <= 0
   end
 end
