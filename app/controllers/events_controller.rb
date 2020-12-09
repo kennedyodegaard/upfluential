@@ -7,6 +7,13 @@ class EventsController < ApplicationController
     else
       @events = Event.all
     end
+
+     @markers = @flats.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 
   def show

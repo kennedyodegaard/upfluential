@@ -1,45 +1,50 @@
 <div class="container">
-  <%  if params[:query].present? %>
-     <h1 class="mt-4">Results for events near <%= params[:query] %></h1>
-  <% else %>
-     <h1 class="mt-4">All results</h1>
-  <% end %>
-  <div class="search-bar mt-4 form-inline">
-      <%= form_tag events_path, method: :get do %>
+  <div class="banner">
+    <h3>Missions in location</h3>
+    <div class="search-form">
+       <%= form_tag events_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
-          class: "form-control",
-          placeholder: "Find an event"
-        %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
-  </div>
-
-
-    <div class="row mt-4">
-    <% @events.each do |event|  %>
-      <div class="col-md-4">
-        <div class="card mb-4" style="box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 16px;">
-          <% if event.photo.attached? %>
-           <img src="<%= cl_image_path event.photo.key %>" alt="..." style="height: 220px" id="round-top">
-          <% else %>
-           <img src="https://images.unsplash.com/photo-1561026555-13539e82532f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=967&q=80" class="card-img-top" alt="..." style="height: 220px;">
-          <% end %>
-          <div class="card-body" style="height: 220px;">
-            <h5 class="card-title"><%=event.title %></h5>
-            <div class="description-a" style= "height: 100px;" "width: 100%;">
-             <p class="card-text"> <%=event.description.truncate(100) %></p>
-            </div>
-            <div class="button-price d-flex justify-content-between d-inline-block">
-              <p class="card-text"> $<%=event.location%></p>
-              <p class="card-text"> $<%=event.capacity%></p>
-              <p class="card-text"> $<%=event.start_time%></p>
-              <%= link_to "Sign up", event_path(event), class: "btn btn-primary" %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <% end  %>
+          class: "form-control rounded-search mb-2",
+          placeholder: "Introduce your city"%>
+        <% end %>
     </div>
+  </div>
+  <div class="details-filter d-flex">
+    <p>250 missions found</p>
+    <p>Filter<i class="filter"></i></p>
+  </div>
+  <div class="pills d-flex">
+    <div class="pill">
+      <p>category</p>
+    </div>
+    <div class="pill">
+      <p>category</p>
+    </div>
+    <div class="pill">
+      <p>category</p>
+    </div>
+    <div class="pill">
+      <p>category</p>
+    </div>
+  </div>
+  <div class="card-container">
+
+    <div class="card d-flex">
+      <div class="card-info">
+        <p><i class="calendar"></i>15th DEC, 17:00</p>
+        <h5>Beach Cleanup</h5>
+        <p>Amigos de la playa</p>
+      </div>
+      <div class="card-info2 d-flex-column justify-content-between">
+        <i class="heart"></i>
+        <p>3 spots</p>
+      </div>
+    </div>
+  </div>
 </div>
+
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>

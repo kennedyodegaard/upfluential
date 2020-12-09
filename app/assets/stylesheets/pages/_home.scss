@@ -1,0 +1,28 @@
+#hero-image{
+  width: 100%;
+  object-fit: cover;
+  height: 250px;
+}
+
+.margin-top-bottom{
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.step{
+  display:flex;
+  align-items: center;
+}
+
+.step-icon{
+  height: 31px;
+}
+
+.step-icon-tap{
+  width: 30px;
+}
+
+.step span{
+  margin-left: 20px;
+}
+
