@@ -37,6 +37,66 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 
+<% unless @event.is_full? %>
+<%= simple_form_for [@event, @booking] do |f| %>
+  <%= f.input :attending, as: :hidden, input_html: {value: true} %>
+  <%= f.button :submit %>
+<% end %>
+<% end %>
 
 
 
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+<div class="container">
+    <div class="show-title">
+    </div>
+      <div class="description-booking">
+        <div class="description">
+        <div class="description-edit d-flex justify-content-between">
+          <h1><%= @event.title %></h1>
+          <div class="icons">
+            <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, event_path(@event), method: :delete,
+            data: { confirm: "Are you sure?" }%>
+          <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_event_path(@event) %>
+          </div>
+        </div>
+          <p><i class="fas fa-star"></i> 4.8 <%= @event.location %></p>
+          <p><i class="fas fa-user-astronaut"></i> <%= @event.user.first_name %> guests - <i class="fas fa-bed"></i></p>
+          <hr>
+          <p><%= @event.description %></p>
+        </div>
+          <div class="booking">
+            <div class="container">
+              <div class="form-wrapper" style="margin: 0 auto;">
+                <h3>Reserve your luxury home</h3>
+                <p>Give us some details first.</p>
+
+              </div>
+            </div>
+         </div>
+      </div>
+  </div>
+</div>
