@@ -7,8 +7,10 @@ class User < ApplicationRecord
 
   has_many :bookings
   has_many :events, through: :bookings
-  
+
   has_one :organization
 
   has_one_attached :photo
+
+  acts_as_favoritor
 end

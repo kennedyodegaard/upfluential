@@ -23,8 +23,11 @@
 
   <h3>About the event</h3>
   <p><%= @event.description %></p>
-  <div class="d-flex justify-content-between">
-    <p class="my-label">Who's coming?</p>
+  <div>
+    <div class="d-flex justify-content-between">
+      <p class="my-label">Who's coming?</p>
+      <p class="small mb-0" style="vertical-align: middle;"><i class="far fa-user"></i> <%= @event.bookings.count %> out of <%= @event.capacity %> spots</p>
+    </div>
 
     <div class="avatar-container">
       <%  @event.bookings.each do |booking| %>
@@ -32,9 +35,6 @@
       <% end %>
     </div>
   </div>
-
-
-  <p><i class="far fa-user"></i> <%= @event.bookings.count %> out of <%= @event.capacity %> spots</p>
 
   <%= simple_form_for [@event, @booking] do |f| %>
     <%= f.input :attending, as: :hidden, input_html: {value: true} %>
@@ -61,4 +61,3 @@
 </div> <!---- closing the main div ----->
 
 
-  
