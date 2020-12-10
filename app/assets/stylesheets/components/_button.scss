@@ -1,10 +1,15 @@
 .primary-button{
-width: 325px;
-height: 45px;
-border-radius: 12px;
-background-color: #F86D70;
-border: none;
-color: white;
+  width: 325px;
+  height: 45px;
+  border-radius: 12px;
+  background-color: #F86D70;
+  border: none;
+  color: white;
+
+  p {
+    vertical-align: middle;
+    text-align: center;
+  }
 }
 
 .back-button {
@@ -22,3 +27,9 @@ text-decoration: none !important;
     text-decoration: none !important;
     color: white !important;
 }
+
+.primary-button.disabled {
+  pointer-events:none;
+  opacity: 0.6;
+}
+

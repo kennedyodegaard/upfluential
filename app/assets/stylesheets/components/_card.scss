@@ -5,9 +5,15 @@
   box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.04);
   display: flex;
   border: 1px solid $light;
+  color: $body-color !important;
+  margin-bottom: 5px;
   p{
     font-size: $label;
   }
+}
+
+a:hover{
+  text-decoration: none !important;
 }
 
 #heart{

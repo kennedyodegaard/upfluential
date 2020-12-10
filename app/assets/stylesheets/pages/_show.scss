@@ -12,7 +12,11 @@
   bottom: 10px;
   left: 20px;
   color: white;
-  opacity: 0.8;
+  opacity: 0.9;
+
+  h1 {
+      letter-spacing: -1px;
+  }
 }
 
 #map {
@@ -20,4 +24,27 @@
   height: 600px;
   border-radius: 15px;
 }
+
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  padding: 8px;
+  object-fit: cover;
+}
+
+.my-label {
+  font-weight: bold;
+}
+
+.counter { 
+  font-weight: lighter;
+}
+
 

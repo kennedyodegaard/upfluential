@@ -5,6 +5,7 @@
 .main-container{
   width: 325px;
   margin: 0 auto;
+  margin-bottom: 80px;
 }
 
 .banner{
@@ -25,8 +26,54 @@ h4{
 .details-filter{
   display: flex;
   justify-content: space-between;
+  font-size: $label;
 }
 
 .pills{
   display: flex;
+  width: 325px;
+}
+
+.link-style a {
+    text-decoration: none !important;
+    color: $body-color !important;
+  &:hover{
+    text-decoration: none !important;
+    color: $body-color !important;
+  }
+}
+
+.cards-container{
+  padding-bottom: 70px;
+}
+
+.hide{
+  display: none;
+}
+
+#sort{
+  width: 20px;
+}
+
+h1 {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.date{
+  color: $primary;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+p {
+  font-size: 18px;
 }

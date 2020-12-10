@@ -27,6 +27,14 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+const downArrow = document.getElementById("more-categories");
+const categories = document.querySelectorAll(".category-group");
+downArrow.addEventListener('click', (event) => {
+  categories.forEach((category) => {
+    category.classList.toggle("hide");
+  });
+  event.currentTarget.classList.toggle("fa-chevron-up")
+});
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -34,7 +42,10 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 import { initMapbox } from '../plugins/init_mapbox';
+import { setUpEventSearchPills } from '../plugins/event_pills';
+
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  setUpEventSearchPills();
 })
