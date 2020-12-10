@@ -45,3 +45,43 @@ a:hover{
   object-fit: cover;
   margin-right: 8px;
 }
+
+.status-card {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.upcoming-card {
+  height: 151px;
+  width: 150px;
+  border-radius: 13px;
+  background-color: #3F3D56;
+  color: white;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  h3 {
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 200;
+  
+  }
+}
+
+.completed-card {
+  height: 151px;
+  width: 150px;
+  border-radius: 13px;
+  background-color: white;
+  color: #FDDBDB;
+  border-color: #FDDBDB;
+  border-width: 1px;
+  border-style: solid;
+  display: flex;
+  align-items: center;
+  h3 {
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 200;
+  }
+}
