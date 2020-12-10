@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 
+Booking.destroy_all
 Event.destroy_all
 Organization.destroy_all
 User.destroy_all
