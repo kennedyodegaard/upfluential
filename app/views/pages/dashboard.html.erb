@@ -1,17 +1,24 @@
 <div class="main-container">
-  <% if current_user.hours_volunteered > 0 %>
-    <p><%= current_user.hours_volunteered %> hours of volunteering</p>
-  <% else %>
-    <p>You don't have any volunteering hours gained</p>
-  <% end %>
-  <h1>Upcoming events</h1>
+<%# here comes the avatar %>
+<h1 style="text-align: center;">Hello <%= current_user.first_name %></h1>
+  <div class="personal-vol-info">
+    <% if current_user.hours_volunteered > 0 %>
+      <ul>
+        <li style="list-style: none; font-size: 12px;"><%= current_user.hours_volunteered %> hours of volunteering</li>
+      </ul>
+      <% else %>
+        <ul>
+          <li style="list-style: none; font-size: 12px;">You don't have any volunteering hours gained</li>
+        </ul>
+    <% end %>
+  </div>
   <div class="status-card">
-      <div class="upcoming-card">
-        <h3>upcoming</h3>
-      </div>
-      <div class="completed-card">
-        <h3>completed</h3>
-      </div>
+    <div class="upcoming-card">
+      <h3><%= current_user.events.size %> upcoming events</h3>
+    </div>
+    <div class="completed-card">
+      <h3><%= current_user.events.completed.size %> Completed Events</h3>
+    </div>
   </div>
   <% @events.each do |event|  %>
       <div class="event-card">
@@ -30,8 +37,8 @@
             <p><%= event.user.first_name %> <%= event.user.last_name %></p>
             <p><%= event.capacity %> spots</p>
           </div>
+          <hr>
         </div>
     </div>
     <% end %>
-  <hr>
 </div>

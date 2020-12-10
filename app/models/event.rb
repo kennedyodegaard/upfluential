@@ -16,6 +16,7 @@ class Event < ApplicationRecord
     }
   validates :category, inclusion: { in: ["community", "environment", "youth", "seniors", "animals", "LGBTQ+", "culture", "outdoors", "indoors", "virtual", "sports"] }
 
+  scope :completed, -> {where("end_time < ?", Time.now)}
 
   def available_spots
     (self.capacity - self.bookings.count)
@@ -30,7 +31,9 @@ class Event < ApplicationRecord
   end
 
   def completed?
-    self.end_time > Time.now
+    self.end_time < Time.now
   end
+
+
 
 end
