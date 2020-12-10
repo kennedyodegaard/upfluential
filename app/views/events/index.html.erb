@@ -1,6 +1,10 @@
 <div class="banner">
   <%= render 'shared/logo-login-purple' %>
-  <h4>Missions in location</h4>
+  <%  if params[:query].present? %>
+     <h4 class="mt-4">Events in <%= params[:query].capitalize %></h4>
+  <% else %>
+     <h4 class="mt-4">All results</h4>
+  <% end %>
   <div class="container">
     <div class="search-form">
        <%= form_tag events_path, method: :get, class: "events-search-form" do %>
