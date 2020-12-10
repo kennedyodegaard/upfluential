@@ -16,7 +16,11 @@ class Event < ApplicationRecord
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
   validates :category, inclusion: { in: ["community", "environment", "youth", "seniors", "animals", "LGBTQ+", "culture", "outdoors", "indoors", "virtual", "sports"] }
+
+  scope :completed, -> {where("end_time < ?", Time.now)}
+
   validates_length_of :title, maximum: 28
+
 
   def available_spots
     (self.capacity - self.bookings.count)
@@ -26,6 +30,13 @@ class Event < ApplicationRecord
     self.available_spots <= 0
   end
 
+  def activity_time
+    ((self.end_time - self.start_time) / 3600).to_i
+  end
+
+  def completed?
+    self.end_time < Time.now
+  end
 
   def self.categories
     ["community", "environment", "youth", "seniors", "animals", "LGBTQ+", "culture", "outdoors", "indoors", "virtual", "sports"]
