@@ -42,7 +42,10 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 import { initMapbox } from '../plugins/init_mapbox';
+import { setUpEventSearchPills } from '../plugins/event_pills';
+
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  setUpEventSearchPills();
 })

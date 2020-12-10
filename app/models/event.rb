@@ -30,10 +30,6 @@ class Event < ApplicationRecord
     ["community", "environment", "youth", "seniors", "animals", "LGBTQ+", "culture", "outdoors", "indoors", "virtual", "sports"]
   end
 
-  def events_by_category(selected_category)
-    self.where(category: selected_category)
-  end
-
   def cta_content
     if self.is_full?
       '<p class="pl-2 pr-2 mb-0">SORRY, THIS EVENT IS FULL </p><i class="fas fa-exclamation-triangle"></i>'
