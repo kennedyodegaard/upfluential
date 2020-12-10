@@ -23,7 +23,7 @@ organization1 = Organization.new(name: "Clean Beach Initiative", website: "https
 organization_logo1 = URI.open('https://cleanbeachinitiative.org/wp-content/uploads/2020/04/cropped-CBI-Logo-color3-on-transparent.png')
 organization1.logo.attach(io: organization_logo1, filename: "organization_logo1.png", content_type: "image/png")
 
-banner1 = URI.open("https://images.unsplash.com/photo-1567960402566-6db67ad34d37?ixid=MXwxMjA3fDB8MHxzZWFyY2h8ODV8fHJhaW5ib3dzfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
+banner1 = URI.open("https://images.unsplash.com/photo-1496737018672-b1a6be2e949c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8YmVhY2h8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
 organization1.photos.attach(io: banner1, filename: "banner1.png", content_type: "image/png")
 
 organization1.save
@@ -45,7 +45,7 @@ user2.save
 organization2 = Organization.new(name: "Biblioteques de Barcelona", website: "https://ajuntament.barcelona.cat/", description: "Barcelona Public Library is among the most democratic civic institutions, serving patrons in every neighborhood and from every walk of life. BPL is one of Catalonia’s largest public library systems. BPL is a recognized leader in cultural offerings, literacy, out-of-school-time services, workforce development programs, and digital literacy. In a time of wide economic disparity, where the costs of basic necessities often take priority over spending on cultural enrichment opportunities, BPL provides a democratic space where patrons of all economic standings can avail themselves and their children to cultural and educational programs in a broad range of disciplines.", location: "Carrer de Provença, 480, 08025 Barcelona", user: user2)
 organization_logo2 = URI.open("https://www.barcelona.cat/assets/images/brand/banner/2017/logo.svg")
 organization2.logo.attach(io: organization_logo2, filename: "organization_logo2.png", content_type: "image/png")
-banner2 = URI.open("https://images.unsplash.com/photo-1567960402566-6db67ad34d37?ixid=MXwxMjA3fDB8MHxzZWFyY2h8ODV8fHJhaW5ib3dzfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
+banner2 = URI.open("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8Ym9va3N8ZW58MHx8MHw%3D&auto=format&fit=crop&w=500&q=60")
 organization2.photos.attach(io: banner2, filename: "banner2.png", content_type: "image/png")
 organization2.save
 
@@ -71,7 +71,7 @@ user3.save
 organization3 = Organization.new(name: "Arrels Fundacio", website: "https://www.arrelsfundacio.org", description: "The members of Arrels are people who want no one to sleep on the street . Since 1987 we have accompanied more than 14,700 homeless people on their way to autonomy, offering guidance and useful services for accommodation, food and social and health care. We have the support of 68 workers, about 400 volunteers and more than 5,700 members and donors who collaborate to make possible ", location: "Carrer de la Riereta, 24, 08001 Barcelona", user: user3)
 organization_logo3 = URI.open("https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80")
 organization3.logo.attach(io: organization_logo3, filename: "organization_logo3.png", content_type: "image/png")
-banner3 = URI.open("https://images.unsplash.com/photo-1567960402566-6db67ad34d37?ixid=MXwxMjA3fDB8MHxzZWFyY2h8ODV8fHJhaW5ib3dzfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
+banner3 = URI.open("https://images.unsplash.com/photo-1519430044529-9a9a57177865?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8aG9tZWxlc3N8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
 organization3.photos.attach(io: banner3, filename: "banner3.png", content_type: "image/png")
 organization3.save
 
@@ -98,7 +98,7 @@ user4.save
 organization4 = Organization.new(name: "Fundacion Lucha", website: "https://www.flsida.org", description: "Fundacion Lucha provides sensitive, quality health care and related services targeted to Barcelona’s lesbian, gay, bisexual, and transgender communities — in all their diversity — regardless of ability to pay. To further this mission, Fundacion Lucha promotes health education and wellness, and advocates for LGBTQ health issues.", location: "Carrer de Roger de Llúria, 13, 08010 Barcelona", user: user3)
 organization_logo4 = URI.open("https://www.flsida.org/sites/default/files/logotipo.png")
 organization4.logo.attach(io: organization_logo4, filename: "organization_logo4.png", content_type: "image/png")
-banner4 = URI.open("https://images.unsplash.com/photo-1567960402566-6db67ad34d37?ixid=MXwxMjA3fDB8MHxzZWFyY2h8ODV8fHJhaW5ib3dzfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
+banner4 = URI.open("https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8ZG9jdG9yc3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
 organization4.photos.attach(io: banner4, filename: "banner4.png", content_type: "image/png")
 organization4.save
 
