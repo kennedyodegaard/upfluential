@@ -25,14 +25,13 @@
   <p><%= @event.description %></p>
   <div class="d-flex justify-content-between">
     <p class="my-label">Who's coming?</p>
+
     <div class="avatar-container">
       <%  @event.bookings.each do |booking| %>
         <img class="avatar" src=" <%= cl_image_path booking.user.photo.key %> " alt="face">
       <% end %>
     </div>
   </div>
-
-
 
 
   <p><i class="far fa-user"></i> <%= @event.bookings.count %> out of <%= @event.capacity %> spots</p>

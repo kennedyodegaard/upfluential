@@ -40,6 +40,5 @@ class Event < ApplicationRecord
     else
       "<p class=\"mb-0\">#{self.available_spots} SPOTS LEFT <i class=\"fas fa-user-plus\"></i></p>"
     end
-
   end
 end
