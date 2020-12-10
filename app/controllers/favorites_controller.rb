@@ -1,4 +1,10 @@
 class FavoritesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index ]
+
+  def index
+    @favorite_events = current_user.all_favorites.map { |favorite| favorite.favoritable }
+  end
+
   def create
     @event = Event.find(params[:event_id])
     current_user.favorite(@event)
