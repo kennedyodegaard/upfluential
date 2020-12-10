@@ -1,12 +1,13 @@
 <div class="banner">
   <%= render 'shared/logo-login-purple' %>
   <h4>Missions in location</h4>
-  <div class="main-container">
+  <div class="container">
     <div class="search-form">
-       <%= form_tag events_path, method: :get do %>
+       <%= form_tag events_path, method: :get, class: "events-search-form" do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control rounded-search mb-3", placeholder: ""%>
+          <%= hidden_field_tag :category, class: "events-search-category" %>
         <% end %>
     </div>
     <div class="details-filter">
@@ -14,14 +15,12 @@
       <p>Sort by<img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607526430/filter_iconfilter_sxm5zf.png" id="sort"></p>
     </div>
 
-    <div class="cards-container">
-    <div class="category-group-visible ml-3">
+    <div class="category-group-visible ml-3 mt-1">
       <div class="row">
+
         <% @events.categories.in_groups_of(4)[0].each do |item| %>
           <% unless item.nil? %>
-             <!-- link_to events_path(@events.events_by_category(item)) -->
-              <p class="pill-white"><%= item %></p>
-             <!-- end -->
+            <%= render "shared/event-category-pill", item: item, selected: item == @category %>
           <% end %>
         <% end %>
         <i class="fas fa-chevron-down" id="more-categories"></i>
@@ -31,7 +30,7 @@
       <div class="row">
         <% @events.categories.in_groups_of(4)[1].each do |item| %>
           <% unless item.nil? %>
-            <p class="pill-white"><%= item %></p>
+            <%= render "shared/event-category-pill", item: item, selected: item == @category %>
           <% end %>
         <% end %>
         </div>
@@ -40,11 +39,12 @@
       <div class="row">
         <% @events.categories.in_groups_of(4)[2].each do |item| %>
           <% unless item.nil? %>
-            <p class="pill-white"><%= item %></p>
+          <%= render "shared/event-category-pill", item: item, selected: item == @category %>
           <% end %>
         <% end %>
         </div>
       </div>
+    <div class="cards-container mt-2">
     <% @events.each do |event|  %>
       <%= link_to event_path(event), class: 'link-style' do %>
         <div class="event-card">
