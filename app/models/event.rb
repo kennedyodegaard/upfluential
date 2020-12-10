@@ -32,6 +32,7 @@ class Event < ApplicationRecord
 
   def events_by_category(selected_category)
     self.where(category: selected_category)
+  end
 
   def cta_content
     if self.is_full?
