@@ -24,4 +24,13 @@ class Event < ApplicationRecord
   def is_full? # Event.last.is_full? -> self == Event.last
     self.available_spots <= 0
   end
+
+  def activity_time
+    ((self.end_time - self.start_time) / 3600).to_i
+  end
+
+  def completed?
+    self.end_time > Time.now
+  end
+
 end

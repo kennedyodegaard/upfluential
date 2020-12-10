@@ -1,8 +1,17 @@
 <div class="main-container">
+  <% if current_user.hours_volunteered > 0 %>
+    <p><%= current_user.hours_volunteered %> hours of volunteering</p>
+  <% else %>
+    <p>You don't have any volunteering hours gained</p>
+  <% end %>
   <h1>Upcoming events</h1>
   <div class="status-card">
-      <div class="upcoming-card">upcoming</div>
-      <div class="completed-card">completed</div>
+      <div class="upcoming-card">
+        <h3>upcoming</h3>
+      </div>
+      <div class="completed-card">
+        <h3>completed</h3>
+      </div>
   </div>
   <% @events.each do |event|  %>
       <div class="event-card">

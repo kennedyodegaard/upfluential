@@ -11,4 +11,14 @@ class User < ApplicationRecord
   has_one :organization
 
   has_one_attached :photo
+
+  def hours_volunteered
+    sum = 0
+    self.events.each do |event|
+      if event.completed?
+        sum += event.activity_time
+      end
+    end
+    sum
+  end
 end
