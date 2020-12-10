@@ -30,8 +30,9 @@ class Event < ApplicationRecord
     ["community", "environment", "youth", "seniors", "animals", "LGBTQ+", "culture", "outdoors", "indoors", "virtual", "sports"]
   end
 
-  def events_by_category(selected_category)
-    self.where(category: selected_category)
+  def self.events_by_category(selected_category)
+    where(category: selected_category)
+  end
 
   def cta_content
     if self.is_full?

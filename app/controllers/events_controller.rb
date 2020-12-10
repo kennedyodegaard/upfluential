@@ -2,13 +2,14 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
+    @events = Event.all
     if params[:query].present?
       @events = Event.search_by_location(params[:query])
-    else
-      @events = Event.all
     end
-    # @events.category = selected_category
-    # events_by_category = @events.events_by_category(selected_category)
+    if params[:category].present?
+      @category = params[:category]
+      @events = @events.where(category: params[:category])
+    end
   end
 
   def show
