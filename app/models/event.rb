@@ -32,6 +32,7 @@ class Event < ApplicationRecord
 
   def events_by_category(selected_category)
     self.where(category: selected_category)
+  end
 
   def cta_content
     if self.is_full?
@@ -39,6 +40,5 @@ class Event < ApplicationRecord
     else
       "<p class=\"mb-0\">#{self.available_spots} SPOTS LEFT <i class=\"fas fa-user-plus\"></i></p>"
     end
-
   end
 end

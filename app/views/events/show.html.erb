@@ -24,15 +24,15 @@
   <p><%= @event.description %></p>
   <div class="d-flex justify-content-between">
     <p class="my-label">Who's coming?</p>
-    <p><i class="far fa-user"></i> <%= @event.bookings.count %> out of <%= @event.capacity %> spots</p>
+    <p class="small" style="vertical-align:middle;"><i class="far fa-user"></i> <%= @event.bookings.count %> out of <%= @event.capacity %> spots</p>
   </div>
-  <p><i class="fas fa-user-astronaut"></i> <%= @event.user.first_name %></p>
+  <p class="small"><i class="fas fa-user-astronaut"></i> <%= @event.user.first_name %></p>
 
 <%= simple_form_for [@event, @booking] do |f| %>
   <%= f.input :attending, as: :hidden, input_html: {value: true} %>
   <input type="submit" id="submit-booking" style="position: absolute; left: -100vw;">
 
-     <label class="<%= 'disabled' if @event.is_full? %> primary-button d-flex align-items-center justify-content-center" for="submit-booking">
+    <label class="<%= 'disabled' if @event.is_full? %> primary-button d-flex align-items-center justify-content-center" for="submit-booking">
       <%= @event.cta_content.html_safe %> </label>
 
 <% end %>
