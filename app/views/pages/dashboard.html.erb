@@ -1,0 +1,28 @@
+<div class="main-container">
+  <h1>Upcoming events</h1>
+  <div class="status-card">
+      <div class="upcoming-card">upcoming</div>
+      <div class="completed-card">completed</div>
+  </div>
+  <% @events.each do |event|  %>
+      <div class="event-card">
+        <% if event.photos.attached? %>
+           <img src="<%= cl_image_path event.photos.first.key %>" alt="..." id="event-image">
+          <% else %>
+           <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607524305/nx5c2nwp3ragtvuihxeui53bqcph.jpg" id="event-image">
+          <% end %>
+        <div class="card-information">
+          <div class="card-info">
+            <p><i class="far fa-calendar-alt"></i>  <%= event.start_time.strftime("%A, %b %d") %></p>
+            <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607513661/Vectorheart_bx0iai.png" id="heart">
+          </div>
+          <h6><%= event.title %></h6>
+          <div class="card-info2">
+            <p><%= event.user.first_name %> <%= event.user.last_name %></p>
+            <p><%= event.capacity %> spots</p>
+          </div>
+        </div>
+    </div>
+    <% end %>
+  <hr>
+</div>

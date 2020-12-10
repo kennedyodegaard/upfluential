@@ -39,3 +39,26 @@
   object-fit: cover;
   margin-right: 8px;
 }
+
+.status-card {
+  display: flex;
+}
+
+.upcoming-card {
+  height: 151px;
+  width: 150px;
+  border-radius: 13px;
+  background-color: #3F3D56;
+  color: white;
+  margin-right: 10px;
+}
+
+.completed-card {
+  height: 151px;
+  width: 150px;
+  border-radius: 13px;
+  background-color: white;
+  color: #FDDBDB;
+  border-color: #FDDBDB;
+  border: solid;
+}
