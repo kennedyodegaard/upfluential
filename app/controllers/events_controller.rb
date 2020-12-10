@@ -16,6 +16,7 @@ class EventsController < ApplicationController
     @booking = Booking.new
     @event = Event.find(params[:id])
 
+
      @markers = [{
       lat: @event.latitude,
       lng: @event.longitude,
