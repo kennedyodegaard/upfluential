@@ -7,6 +7,8 @@ class EventsController < ApplicationController
     else
       @events = Event.all
     end
+    # @events.category = selected_category
+    # events_by_category = @events.events_by_category(selected_category)
   end
 
   def show

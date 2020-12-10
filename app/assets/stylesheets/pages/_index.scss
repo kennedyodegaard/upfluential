@@ -25,8 +25,36 @@ h4{
 .details-filter{
   display: flex;
   justify-content: space-between;
+  font-size: $label;
 }
 
 .pills{
   display: flex;
+  width: 325px;
+}
+
+.link-style a {
+    text-decoration: none !important;
+    color: $body-color !important;
+  &:hover{
+    text-decoration: none !important;
+    color: $body-color !important;
+  }
+}
+
+.cards-container{
+  margin-bottom: 70px;
+}
+
+.hide{
+  display: none;
+}
+
+#sort{
+  width: 20px;
+}
+
+h1 {
+  font-size: 35px;
+  font-weight: bold;
 }

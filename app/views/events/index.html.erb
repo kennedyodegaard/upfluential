@@ -6,38 +6,67 @@
        <%= form_tag events_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
-          class: "form-control rounded-search mb-4", placeholder: ""%>
+          class: "form-control rounded-search mb-3", placeholder: ""%>
         <% end %>
     </div>
     <div class="details-filter">
-      <p>250 missions found</p>
-      <p>Filter<img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607526430/filter_iconfilter_sxm5zf.png"></p>
+      <p><%= @events.count %> missions found</p>
+      <p>Sort by<img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607526430/filter_iconfilter_sxm5zf.png" id="sort"></p>
     </div>
-    <div class="pills">
-        <p class="pill-white">LGBTQ+</p>
-        <p class="pill-purple">animals</p>
-        <p class="pill-purple">senior</p>
-        <p class="pill-white">more</p>
-    </div>
-    <% @events.each do |event|  %>
-      <div class="event-card">
-        <% if event.photos.attached? %>
-           <img src="<%= cl_image_path event.photos.first.key %>" alt="..." id="event-image">
-          <% else %>
-           <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607524305/nx5c2nwp3ragtvuihxeui53bqcph.jpg" id="event-image">
+
+    <div class="cards-container">
+    <div class="category-group-visible ml-3">
+      <div class="row">
+        <% @events.categories.in_groups_of(4)[0].each do |item| %>
+          <% unless item.nil? %>
+             <!-- link_to events_path(@events.events_by_category(item)) -->
+              <p class="pill-white"><%= item %></p>
+             <!-- end -->
           <% end %>
-        <div class="card-information">
-          <div class="card-info">
-            <p><i class="far fa-calendar-alt"></i>  <%= event.start_time.strftime("%A, %b %d") %></p>
-            <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607513661/Vectorheart_bx0iai.png" id="heart">
-          </div>
-          <h6><%= event.title %></h6>
-          <div class="card-info2">
-            <p><%= event.user.first_name %> <%= event.user.last_name %></p>
-            <p><%= event.capacity %> spots</p>
+        <% end %>
+        <i class="fas fa-chevron-down" id="more-categories"></i>
+        </div>
+      </div>
+      <div class="category-group hide ml-3">
+      <div class="row">
+        <% @events.categories.in_groups_of(4)[1].each do |item| %>
+          <% unless item.nil? %>
+            <p class="pill-white"><%= item %></p>
+          <% end %>
+        <% end %>
+        </div>
+      </div>
+      <div class="category-group hide ml-3">
+      <div class="row">
+        <% @events.categories.in_groups_of(4)[2].each do |item| %>
+          <% unless item.nil? %>
+            <p class="pill-white"><%= item %></p>
+          <% end %>
+        <% end %>
+        </div>
+      </div>
+    <% @events.each do |event|  %>
+      <%= link_to event_path(event), class: 'link-style' do %>
+        <div class="event-card">
+          <% if event.photos.attached? %>
+             <img src="<%= cl_image_path event.photos.first.key %>" alt="..." id="event-image">
+            <% else %>
+             <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607524305/nx5c2nwp3ragtvuihxeui53bqcph.jpg" id="event-image">
+            <% end %>
+          <div class="card-information">
+            <div class="card-info">
+              <p><i class="far fa-calendar-alt"></i>  <%= event.start_time.strftime("%A, %b %d") %></p>
+              <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607513661/Vectorheart_bx0iai.png" id="heart">
+            </div>
+            <h6><%= event.title %></h6>
+            <div class="card-info2">
+              <p><%= event.user.first_name %> <%= event.user.last_name %></p>
+              <p><%= event.capacity %> spots</p>
+            </div>
           </div>
         </div>
-    </div>
+      <% end %>
     <% end %>
   </div>
+</div>
 </div>
