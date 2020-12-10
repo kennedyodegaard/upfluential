@@ -10,12 +10,12 @@ class Event < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_location?
   include PgSearch::Model
   pg_search_scope :search_by_location,
-    against: [:location],
+    against: [:location, :title, :category],
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
   validates :category, inclusion: { in: ["community", "environment", "youth", "seniors", "animals", "LGBTQ+", "culture", "outdoors", "indoors", "virtual", "sports"] }
-
+  validates_length_of :title, maximum: 28
 
   def available_spots
     (self.capacity - self.bookings.count)
@@ -23,5 +23,13 @@ class Event < ApplicationRecord
   # def self.is_full? -> Event.is_full?
   def is_full? # Event.last.is_full? -> self == Event.last
     self.available_spots <= 0
+  end
+
+  def self.categories
+    ["community", "environment", "youth", "seniors", "animals", "LGBTQ+", "culture", "outdoors", "indoors", "virtual", "sports"]
+  end
+
+  def events_by_category(selected_category)
+    self.where(category: selected_category)
   end
 end

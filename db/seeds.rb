@@ -10,7 +10,7 @@ require 'open-uri'
 Event.destroy_all
 Organization.destroy_all
 User.destroy_all
-categories = ["community", "environment", "youth", "seniors", "animals", "LGBTQ+", "culture", "outdoors", "indoors", "virtual", "sports"]
+CATEGORIES = ["community", "environment", "youth", "seniors", "animals", "LGBTQ+", "culture", "outdoors", "indoors", "virtual", "sports"]
 #1
 # user
 user1 = User.new(first_name: "Kennedy", last_name: "Odegaard ", email: "kennedy@gmail.com", password: "password", bio: "Nonprofit Business Administration & Intercultural Studies graduate from North Dakota US (+ Minnesota & Arizona). Been living in Barcelona for 3 years teaching English... ready for a change & to start a job that interests & challenges me.")
@@ -78,13 +78,13 @@ organization3.photos.attach(io: banner3, filename: "banner3.png", content_type: 
 organization3.save
 
 # event
-event4 = Event.new(title:"La Troballa: language classes", capacity: 10, description: "La Troballa is Arrels' occupational workshop, where people who live or have lived on the streets regain skills through artisanal production. Volunteer teachers offer stimulating lessons Catalan and / or Spanish for immigrants living in the street. Tuesday and / or Thursday from 3.30pm to 6.30pm.
+event4 = Event.new(title:"La Troballa language classes", capacity: 10, description: "La Troballa is Arrels' occupational workshop, where people who live or have lived on the streets regain skills through artisanal production. Volunteer teachers offer stimulating lessons Catalan and / or Spanish for immigrants living in the street. Tuesday and / or Thursday from 3.30pm to 6.30pm.
 ", location: "Barcelona", category: "community", start_time: "22/12/2020 3:30pm", end_time: "22/12/2020 6:30pm", user: user3, organization: organization3)
 event_photo4 = URI.open("https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8Y29tbXVuaXR5fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
 event4.photos.attach(io: event_photo4, filename: "event_photo4.png", content_type: "image/png")
 event4.save
 
-event5 = Event.new(title:"La Troballa: store management", capacity: 10, description: "La Troballa is Arrels' occupational workshop, where people who live or have lived on the streets regain skills through artisanal production. Volunteer Manage the sale of products made in the workshop through the digital store and, later, the physical store that is under construction. Daily shifts 7days a week.
+event5 = Event.new(title:"La Troballa store management", capacity: 10, description: "La Troballa is Arrels' occupational workshop, where people who live or have lived on the streets regain skills through artisanal production. Volunteer Manage the sale of products made in the workshop through the digital store and, later, the physical store that is under construction. Daily shifts 7days a week.
 ", location: "Barcelona", category: "community", start_time: "17/12/2020 5:00pm", end_time: "17/12/2020 8:00pm", user: user3, organization: organization3)
 event_photo5 = URI.open("https://images.unsplash.com/photo-1473187983305-f615310e7daa?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTl8fHN0b3JlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
 event5.photos.attach(io: event_photo5, filename: "event_photo5.png", content_type: "image/png")
@@ -107,7 +107,7 @@ organization4.photos.attach(io: banner4, filename: "banner4.png", content_type: 
 organization4.save
 
 # event
-event6 = Event.new(title:"12 hours of spinning against AIDS", capacity: 10, description: "his is a 12-hour marathon of indoor cycling (commonly known as spinning), organised by the Fundació Lluita contra la Sida [Fight Against AIDS Foundation], with the aim of raising funds to finance their research projects. Symbolically, a round-the-world trip will be completed, passing through a variety of places and discovering how HIV/AIDS is affecting them.
+event6 = Event.new(title:"Spinning against AIDS", capacity: 10, description: "his is a 12-hour marathon of indoor cycling (commonly known as spinning), organised by the Fundació Lluita contra la Sida [Fight Against AIDS Foundation], with the aim of raising funds to finance their research projects. Symbolically, a round-the-world trip will be completed, passing through a variety of places and discovering how HIV/AIDS is affecting them.
 A virtual route will be selected, passing through countries, cities and regions, with the aim of completing a trip around the world. Each session will have a different profile, according to the territory involved and its geographical characteristics. In each one, participants will be motivated by different sensations that aim to complete their experience: these include props, decorations, images projected onto a giant screen located on stage and a selection of music that reflects each geographic area’s style and tendencies.", location: "Barcelona", category: "LGBTQ+", start_time: "12/01/2021 9:00am", end_time: "12/01/2021 9:00pm", user: user4, organization: organization4)
 event_photo6 = URI.open("https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8Y29tbXVuaXR5fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
 event6.photos.attach(io: event_photo6, filename: "event_photo6.png", content_type: "image/png")
