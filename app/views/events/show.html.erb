@@ -23,18 +23,17 @@
 
   <h3>About the event</h3>
   <p><%= @event.description %></p>
+
   <div class="d-flex justify-content-between mt-4">
     <p class="my-label">Who's coming?</p>
     <p class="counter"><i class="far fa-user"></i> <%= @event.bookings.count %> out of <%= @event.capacity %> spots</p>
   </div>
+
     <div class="avatar-container">
       <%  @event.bookings.first(5).each do |booking| %>
         <img class="avatar" src=" <%= cl_image_path booking.user.photo.key %> " alt="face">
       <% end %>
     </div>
-  
-
-
   
 
   <%= simple_form_for [@event, @booking] do |f| %>
@@ -62,4 +61,3 @@
 </div> <!---- closing the main div ----->
 
 
-  
