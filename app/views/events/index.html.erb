@@ -1,7 +1,7 @@
 <div class="banner">
   <%= render 'shared/logo-login-purple' %>
   <h4>Missions in location</h4>
-  <div class="main-container">
+  <div class="container">
     <div class="search-form">
        <%= form_tag events_path, method: :get, class: "events-search-form" do %>
         <%= text_field_tag :query,
