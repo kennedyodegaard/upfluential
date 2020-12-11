@@ -1,6 +1,15 @@
+<%= render 'shared/logo-login-purple' %>
 <div class="main-container">
 <%# here comes the avatar %>
-<h1 style="text-align: center;">Hello <%= current_user.first_name %></h1>
+<div class="welcome">
+  <h1 >Hello <%= current_user.first_name %></h1>
+  <% if current_user.photo.attached? %>
+    <img class="avatar-dashboard avatar"  src=" <%= cl_image_path current_user.photo.key %> " alt="face">
+  <% else %>
+    <div class="avatar-dashboard no-pic-avatr">
+    </div>
+  <% end %>
+</div>
   <div class="personal-vol-info">
     <% if current_user.hours_volunteered > 0 %>
       <ul>
@@ -20,25 +29,37 @@
       <h3><%= current_user.events.completed.size %> Completed Events</h3>
     </div>
   </div>
-  <% @events.each do |event|  %>
-      <div class="event-card">
-        <% if event.photos.attached? %>
-           <img src="<%= cl_image_path event.photos.first.key %>" alt="..." id="event-image">
-          <% else %>
-           <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607524305/nx5c2nwp3ragtvuihxeui53bqcph.jpg" id="event-image">
-          <% end %>
-        <div class="card-information">
-          <div class="card-info">
-            <p><i class="far fa-calendar-alt"></i>  <%= event.start_time.strftime("%A, %b %d") %></p>
-            <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607513661/Vectorheart_bx0iai.png" id="heart">
+  <div class="cards-container mt-2">
+    <% @events.each do |event|  %>
+      <%= link_to event_path(event), class: 'link-style' do %>
+        <div class="event-card">
+          <% if event.photos.attached? %>
+             <img src="<%= cl_image_path event.photos.first.key %>" alt="..." id="event-image">
+            <% else %>
+             <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607524305/nx5c2nwp3ragtvuihxeui53bqcph.jpg" id="event-image">
+            <% end %>
+          <div class="card-information">
+            <div class="card-info" id="event_<%= event.id %>">
+              <p><i class="far fa-calendar-alt"></i>  <%= event.start_time.strftime("%A, %b %d") %></p>
+                <% if current_user.favorited?(event) %>
+                  <%= link_to event_favorite_path(event), method: :delete do %>
+                    <i class="fas fa-heart"></i>
+                  <% end %>
+                <% else %>
+                  <%= link_to event_favorites_path(event), method: :post do %>
+                    <i class="far fa-heart"></i>
+                  <% end %>
+                <% end %>
+            </div>
+            <h6><%= event.title %></h6>
+            <div class="card-info2">
+              <p><%= event.user.first_name %> <%= event.user.last_name %></p>
+              <p><%= event.capacity %> spots</p>
+            </div>
           </div>
-          <h6><%= event.title %></h6>
-          <div class="card-info2">
-            <p><%= event.user.first_name %> <%= event.user.last_name %></p>
-            <p><%= event.capacity %> spots</p>
-          </div>
-          <hr>
         </div>
-    </div>
+      <% end %>
     <% end %>
+  </div>
+ 
 </div>
