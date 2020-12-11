@@ -2,7 +2,7 @@
 <div class="main-container">
 <%# here comes the avatar %>
 <div class="welcome">
-  <h1 >Hello <%= current_user.first_name %></h1>
+  <h3><span class="font-weight-light">Hello</span> <%= current_user.first_name %></h3>
   <% if current_user.photo.attached? %>
     <img class="avatar-dashboard avatar"  src=" <%= cl_image_path current_user.photo.key %> " alt="face">
   <% else %>
@@ -12,22 +12,19 @@
 </div>
   <div class="personal-vol-info">
     <% if current_user.hours_volunteered > 0 %>
-      <ul>
-        <li style="list-style: none; font-size: 12px;"><%= current_user.hours_volunteered %> hours of volunteering</li>
-      </ul>
+        <p><%= current_user.hours_volunteered %> hours of volunteering</p>
       <% else %>
-        <ul>
-          <li style="list-style: none; font-size: 12px;">You don't have any volunteering hours logged yet</li>
-        </ul>
+        <p>You don't have any volunteer hours logged yet.</p>
     <% end %>
   </div>
   <div class="status-card">
-    <div class="upcoming-card">
-      <h3><%= current_user.events.size %></h3>
+    <div class="dashboard-cards upcoming">
+      <h1 class="mb-0"><%= current_user.events.size %></h1>
       <p>upcoming events</p>
     </div>
-    <div class="completed-card">
-      <h3><%= current_user.events.completed.size %> Completed Events</h3>
+    <div class="dashboard-cards completed">
+      <h1 class="mb-0"><%= current_user.events.completed.size %></h1>
+      <p>Completed Events</p>
     </div>
   </div>
   <div class="cards-container mt-2">
@@ -54,11 +51,12 @@
             </div>
             <h6><%= event.title %></h6>
             <div class="card-info2">
-              <p><%= event.user.first_name %> <%= event.user.last_name %></p>
+              <p><%= event.organization.name %></p>
               <p><%= event.capacity %> spots</p>
             </div>
           </div>
         </div>
       <% end %>
     <% end %>
+  </div>
 </div>
