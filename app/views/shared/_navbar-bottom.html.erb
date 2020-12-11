@@ -1,6 +1,12 @@
 <div class="navbar-bottom sticky">
-    <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607513658/Grouphome_eiraz7.png" class="navbar-icon">
+    <%= link_to favorites_path do %>
     <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607513661/Vectorheart_bx0iai.png" class="navbar-icon">
-    <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607513658/Groupglass_lhthvo.png" class="navbar-icon">
+    <% end %>
+    <%= link_to events_path do   %>
+     <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607513658/Grouphome_eiraz7.png" class="navbar-icon">
+     <% end %>
+     <%= link_to dashboard_path do %>
     <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607513658/Group_27user_vztdt4.png" class="navbar-icon">
+      <% end %>
+    
   </div>

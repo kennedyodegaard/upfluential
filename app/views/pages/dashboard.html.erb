@@ -1,3 +1,4 @@
+<%= render 'shared/logo-login-purple' %>
 <div class="main-container">
 <%# here comes the avatar %>
 <div class="welcome">
@@ -5,7 +6,8 @@
   <% if current_user.photo.attached? %>
     <img class="avatar-dashboard avatar"  src=" <%= cl_image_path current_user.photo.key %> " alt="face">
   <% else %>
-    <div class="avatar-dashboard avatar"></div>
+    <div class="avatar-dashboard no-pic-avatr">
+    </div>
   <% end %>
 </div>
   <div class="personal-vol-info">
@@ -59,4 +61,5 @@
       <% end %>
     <% end %>
   </div>
+ 
 </div>
