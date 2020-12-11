@@ -1,19 +1,20 @@
 .primary-button{
-  width: 325px;
+  width: 100%;
   height: 45px;
   border-radius: 12px;
   background-color: #F86D70;
   border: none;
   color: white;
+  text-align: center;
+  padding-top: 7px;
 
-  p {
-    vertical-align: middle;
-    text-align: center;
+  a {
+    color: white;
   }
 }
 
 .back-button {
-width: 325px;
+width: 100%;
 height: 45px;
 border-radius: 12px;
 background-color: #167FFB;
