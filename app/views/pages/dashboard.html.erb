@@ -13,8 +13,9 @@
     <% end %>
   </div>
   <div class="status-card">
-    <div class="upcoming-card">
-      <h3><%= current_user.events.size %> upcoming events</h3>
+    <div class="upcoming-card text-align-center">
+      <h1><%= current_user.events.size %></h1>
+       <p>upcoming events</p>
     </div>
     <div class="completed-card">
       <h3><%= current_user.events.completed.size %> Completed Events</h3>

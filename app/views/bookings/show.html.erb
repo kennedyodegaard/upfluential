@@ -1,8 +1,9 @@
 <div class="container">
   <%= render 'shared/logo-login-white' %>
+  <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607506215/upfluential_hero_illustration_r2e0xb.png" alt="" id="hero-image">
+  <div class="container">
     <h3 class="text-center" style= "margin-top: 20px;">You have just joined <%= @booking.event.title %></h3>
-    <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607506215/upfluential_hero_illustration_r2e0xb.png" alt="" id="hero-image">
-    <ul style="list-style: none; display:table; margin-top:20px auto;">
+    <ul style="list-style: none; display:table; margin-top:20px">
           <li class="p-1 booking-list"><i class="fas fa-map-marker-alt"></i> <%= @booking.event.location %></li>
           <li class="p-1 booking-list" ><i class="far fa-calendar-alt"></i> <%= @booking.event.start_time.strftime("%b %d, %Y") %></li>
           <li class="p-1 booking-list "><i class="far fa-clock"></i> <%= @booking.event.start_time.strftime("%I:%M %p") %> - <%= @booking.event.end_time.strftime("%I:%M %p") %></li>
@@ -15,4 +16,4 @@
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 </div>
-
+</div>
