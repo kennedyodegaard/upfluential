@@ -17,13 +17,14 @@
       </ul>
       <% else %>
         <ul>
-          <li style="list-style: none; font-size: 12px;">You don't have any volunteering hours gained</li>
+          <li style="list-style: none; font-size: 12px;">You don't have any volunteering hours logged yet</li>
         </ul>
     <% end %>
   </div>
   <div class="status-card">
     <div class="upcoming-card">
-      <h3><%= current_user.events.size %> upcoming events</h3>
+      <h3><%= current_user.events.size %></h3>
+      <p>upcoming events</p>
     </div>
     <div class="completed-card">
       <h3><%= current_user.events.completed.size %> Completed Events</h3>
@@ -61,5 +62,5 @@
       <% end %>
     <% end %>
   </div>
- 
+
 </div>
