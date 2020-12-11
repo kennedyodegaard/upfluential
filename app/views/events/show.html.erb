@@ -14,7 +14,6 @@
       <h1><%= @event.title %></h1>
       <p><%= @event.organization.name %></p>
   </div>
-
   <div class="edit-delete-details">
     <div class="event-details">
       <div class="event-detail">
@@ -34,9 +33,9 @@
     </div>
   </div>
 
-  <h3>About the event</h3>
-  <p><%= @event.description %></p>
 
+  <h3>About the event</h3>
+  <p class="font-weight-light" style="font-size: 14px;"><%= @event.description %></p>
   <div class="attendees">
     <p class="my-label">Who's coming?</p>
     <p class="counter"><i class="far fa-user"></i> <%= @event.bookings.count %> out of <%= @event.capacity %> spots</p>
