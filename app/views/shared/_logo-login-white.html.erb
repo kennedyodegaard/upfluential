@@ -1,7 +1,7 @@
 <div class="nav-container-white">
   <div class="logo-login-white">
     <a href="/events"><i class="fas fa-arrow-circle-up"></i> Upfluential</a>
-    <p>
+    <p class="login">
       <% if user_signed_in? %>
           <%= link_to "log out", destroy_user_session_path, method: :delete%>
       <% else %>
