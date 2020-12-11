@@ -5,6 +5,17 @@
   background: $body-color;
 }
 
-.logo-login-purple p {
-  color: $light;
+.nav-container-purple {
+  margin: auto;
+  margin-bottom: 10px;
+  p, a {
+   padding-right: 20px;
+   padding-left: 20px;
+   color: $light;
+  }
 }
+
+.login {
+  font-weight: lighter;
+  font-size: 14px;
+    }

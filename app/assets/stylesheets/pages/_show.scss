@@ -1,21 +1,58 @@
-.show-banner-img{
-  width: 100%;
-  background-position:center top;
-  display: table;
-  position: relative;
-  background: linear-gradient(to left, #333, #333 50%, #eee 75%, #333 75%);
+.nav-container{
+  margin-bottom: 0px !important;
 }
 
+.show-banner-img{
+  width: 100%;
+  position: relative;
+}
+
+#show-image{
+  height: 260px;
+  background-size: cover;
+}
 
 .show-banner-content {
   position: absolute;
-  bottom: 10px;
+  top: 165px;
   left: 20px;
   color: white;
   opacity: 0.9;
 
   h1 {
-      letter-spacing: -1px;
+    letter-spacing: -1px;
+  }
+
+  p{
+    color: $primary;
+  }
+}
+
+.edit-delete-details{
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  justify-content: space-between;
+}
+
+.event-detail{
+  display: flex;
+  i{
+    font-size: $label;
+    margin-top: 2px;
+    margin-right: 10px;
+  }
+  p{
+    font-size: $label;
+  }
+}
+
+.attendees{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  p{
+    font-size: $label;
   }
 }
 
@@ -25,13 +62,30 @@
   border-radius: 15px;
 }
 
+.current-user-avatar{
+  display: flex;
+  align-items: center;
+  p{
+    color: $body-color;
+    font-size: $label;
+    margin-left: 30px;
+  }
+}
 
-.avatar-container {
+.attendee-avatars {
   display: flex;
   align-items: center;
 }
 
-.avatar {
+.avatar-nil{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  padding: 8px;
+  background-color: $light;
+}
+
+.avatar-event {
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -43,8 +97,16 @@
   font-weight: bold;
 }
 
-.counter { 
+.counter {
   font-weight: lighter;
+}
+
+.map-container{
+  margin-top: 20px;
+}
+
+.last-container{
+  margin-bottom: 70px;
 }
 
 
