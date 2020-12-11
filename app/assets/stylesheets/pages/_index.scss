@@ -1,7 +1,10 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "show";
+@import "dashboard";
+
 @import "new";
+@import "booking";
 
 .main-container{
   width: 325px;
