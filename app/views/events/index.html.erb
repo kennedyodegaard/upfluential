@@ -10,7 +10,7 @@
        <%= form_tag events_path, method: :get, class: "events-search-form" do %>
         <%= text_field_tag :query,
           params[:query],
-          class: "form-control rounded-search mb-3", placeholder: ""%>
+          class: "form-control rounded-search mb-3 index-search", placeholder: "Search by keyword / category / location..."%>
           <%= hidden_field_tag :category, class: "events-search-category" %>
         <% end %>
     </div>
@@ -72,7 +72,7 @@
             </div>
             <h6><%= event.title %></h6>
             <div class="card-info2">
-              <p><%= event.user.first_name %> <%= event.user.last_name %></p>
+              <p><%= event.organization.name %></p>
               <p><%= event.capacity %> spots</p>
             </div>
           </div>
