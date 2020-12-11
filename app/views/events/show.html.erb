@@ -12,7 +12,7 @@
 <div class="main-container">
   <div class=show-banner-content>
       <h1><%= @event.title %></h1>
-      <p><%= @event.organization.name %></p>
+      <p>Organized by <%= link_to organization_path(@event.organization) do %><%= @event.organization.name %></p><% end %>
   </div>
   <div class="edit-delete-details">
     <div class="event-details">
@@ -26,11 +26,13 @@
         <i class="far fa-clock"></i><p><%= @event.start_time.strftime("%I:%M %p") %> - <%= @event.end_time.strftime("%I:%M %p") %></p>
       </div>
     </div>
-    <div class="icons">
-      <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, event_path(@event), method: :delete,
-        data: { confirm: "Are you sure?" }%>
-      <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_event_path(@event) %>
-    </div>
+    <% if @event.user == current_user %>
+      <div class="icons">
+        <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, event_path(@event), method: :delete,
+          data: { confirm: "Are you sure?" }%>
+        <%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_event_path(@event) %>
+      </div>
+    <% end %>
   </div>
 
 
@@ -44,7 +46,11 @@
   <div class="avatar-container">
     <% if @event.bookings.empty? %>
       <div class="current-user-avatar">
-        <img class="avatar-disabled" src=" <%= cl_image_path current_user.photo.key %> " alt="face">
+        <% if current_user.photo.attached? == false %>
+          <div class="avatar-nil"></div>
+        <% else %>
+          <img class="avatar-event" src=" <%= cl_image_path current_user.photo.key %> " alt="face">
+        <% end %>
         <p>Be the first one to sign up!</p>
       </div>
     <% else %>
