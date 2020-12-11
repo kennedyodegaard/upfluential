@@ -3,31 +3,34 @@
 @import "show";
 @import "dashboard";
 
+@import "new";
+@import "booking";
+
 .main-container{
   width: 325px;
   margin: 0 auto;
-  margin-bottom: 80px;
 }
 
 .banner{
   height: 140px;
   background-color: $body-color;
+  h4{
+    color: $light;
+    text-align: center;
+    margin-top: 0;
+  }
 }
 
 .rounded-search{
   background: white;
 }
 
-h4{
-  color: $light;
-  text-align: center;
-  margin-top: 30px;
-}
-
 .details-filter{
   display: flex;
   justify-content: space-between;
-  font-size: $label;
+  p {
+    font-size: $label;
+  }
 }
 
 .pills{
