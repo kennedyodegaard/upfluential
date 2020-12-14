@@ -33,7 +33,10 @@
    <div class="completed-events d-none">
     <%= render 'events/event_list', events: @completed_events%>
   </div>
-  <%= link_to "Edit your profile", edit_user_registration_path, class: "primary-button wit"%>
+  <%= link_to "Edit your profile", edit_user_registration_path, class: "primary-button wit mb-2"%>
+  <% unless current_user.organization.nil? %>
+    <%= link_to "My organization", organization_path(current_user.organization), class: "primary-button wit"%>
+  <% end %>
   <br>
   <br>
   <br>
