@@ -1,0 +1,38 @@
+.org-container {
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+}
+
+.org-detail {
+  
+  i{
+    font-size: $label;
+    margin-top: 2px;
+    margin-right: 10px;
+  }
+  p{
+    font-size: $label;
+  }
+}
+
+.location-icon {
+  display: flex;
+}
+
+#org-image {
+  height: 260px;
+  background-size: cover;
+}
+
+.events {
+  margin-bottom: 10px;
+}
+
+#no-events {
+  font-size: 14px;
+}
+
+.logo-position {
+  position: relative;
+}
