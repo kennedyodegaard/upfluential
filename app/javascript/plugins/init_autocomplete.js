@@ -1,5 +1,5 @@
 import places from 'places.js';
-import { addMarkersToMap, fitMapToMarkers } from './init_mapbox';
+import { addMarkersToMap, fitMapToMarkers } from './init_mapbox'
 
 const initAutocomplete = () => {
   const addressInput = document.getElementById('event_location');
@@ -10,7 +10,7 @@ const initAutocomplete = () => {
 
     placesAutocomplete.on('change', e => handleOnChange(e));
 
-    const markers = [];
+    const markers = []
 
     const handleOnChange = (e) => {
       console.log(e);
