@@ -29,10 +29,17 @@ organization1.photos.attach(io: banner1, filename: "banner1.png", content_type: 
 organization1.save
 
 # event
-event1 = Event.new(title: "Beach Cleanup in Barceloneta", capacity: 10, description: "With our group of volunteers we are organizing weekly beach cleanups in Barcelona. We are always looking forward to welcoming new people to our team. So join us in making our planet an even more beautiful place.", location: "Carrer de Floridablanca 91, 08015 Barcelona", category: "community", start_time: "12/12/2020 11:00am", end_time: "12/12/2020 4:00pm", user: user1, organization: organization1)
+event1 = Event.new(title: "Beach Cleanup in Barceloneta", capacity: 10, description: "With our group of volunteers we are organizing weekly beach cleanups in Barcelona. We are always looking forward to welcoming new people to our team. So join us in making our planet an even more beautiful place.", location: "Carrer de Floridablanca 91, 08015 Barcelona", category: "community", start_time: "29/12/2020 11:00am", end_time: "29/12/2020 4:00pm", user: user1, organization: organization1)
 event_photo1 = URI.open('https://cleanbeachinitiative.org/wp-content/uploads/2020/04/EU-Plastic-Ban.jpg')
 event1.photos.attach(io: event_photo1, filename: "event_photo1.png", content_type: "image/png")
 event1.save
+
+# past event
+past_event1 = Event.new(title: "Beach Cleanup in Barceloneta", capacity: 10, description: "With our group of volunteers we are organizing weekly beach cleanups in Barcelona. We are always looking forward to welcoming new people to our team. So join us in making our planet an even more beautiful place.", location: "Carrer de Floridablanca 91, 08015 Barcelona", category: "community", start_time: "12/12/2020 11:00am", end_time: "12/12/2020 4:00pm", user: user1, organization: organization1)
+past_event_photo1 = URI.open('https://cleanbeachinitiative.org/wp-content/uploads/2020/04/EU-Plastic-Ban.jpg')
+past_event1.photos.attach(io: past_event_photo1, filename: "past_event_photo1.png", content_type: "image/png")
+past_event1.save
+
 
 #2
 
@@ -60,8 +67,18 @@ event_photo3 = URI.open("https://images.unsplash.com/photo-1517430816045-df4b7de
 event3.photos.attach(io: event_photo3, filename: "event_photo3.png", content_type: "image/png")
 event3.save
 
-#3
+# past events
+past_event2 = Event.new(title:"Story Time at The Library", capacity: 10, description: "Are you passionate about story-telling? Do you love kids? We are looking for 5 volunteers as we begin our new program of early-literacy. On Wednesdays afterschool, kids from age 5 to 10 will sit in our main hall to listen to stories. Volunteers will have the opportunity to read from a selection of stories, distribute snacks, check-in, and just assist in supervising the event. It’s super fun and a great opportunity to interact with members of your community!", location: "Carrer de Provença, 480, 08025 Barcelona", category: "youth", start_time: "16/11/2020 2:00pm", end_time: "16/11/2020 6:00pm", user: user2, organization: organization2)
+past_event_photo2 = URI.open("https://images.unsplash.com/photo-1533029764620-40021530b1aa?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzF8fGJvb2tzfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
+past_event2.photos.attach(io: past_event_photo2, filename: "past_event_photo2.png", content_type: "image/png")
+past_event2.save
 
+past_event3 = Event.new(title:"Digital Literacy for Seniors", capacity: 10, description: "Description: Are you passionate about computers? Do you love teaching? We are looking for 5 volunteers as we begin our new program of digital-literacy. On Thursdays, we will welcome those who need a little bit of help navigating our rapidly changing world of technology. Volunteers will have the opportunity to teach various skills from checking emails, downloading apps, software updates, saving contacts and other basic everyday use of computers and cell-phones as well as other devices. Volunteers will assist with check-in, and in supervising the event as well. It’s super fun and a great opportunity to interact with members of your community!", location: "Carrer de Provença, 480, 08025 Barcelona", category: "seniors", start_time: "17/09/2020 5:00pm", end_time: "17/09/2020 8:00pm", user: user2, organization: organization2)
+past_event_photo3 = URI.open("https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1351&q=80")
+past_event3.photos.attach(io: past_event_photo3, filename: "past_event_photo3.png", content_type: "image/png")
+past_event3.save
+
+#3
 user3 = User.new(first_name: "Raoul", last_name: "Boisset", email: "raoul@gmail.com", password: "password", bio: "I was born in France but moved to the USA when I was 12. Before LeWagon I worked in Real Estate in NYC, I mostly worked in sales and marketing for individuals and developers. I also took a year to work at the New York Public Library and did a bit of real estate during that time too.")
 user_avatar3 = URI.open("https://avatars3.githubusercontent.com/u/62706821?v=4")
 user3.photo.attach(io: user_avatar3, filename: "user_avatar3.png", content_type: "image/png")
@@ -119,4 +136,13 @@ organization5.logo.attach(io: organization_logo5, filename: "organization_logo5.
 banner5 = URI.open("https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8ZG9jdG9yc3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
 organization5.photos.attach(io: banner5, filename: "banner5.png", content_type: "image/png")
 organization5.save
+
+# booking 
+
+booking1 = Booking.create!(user: user1 , event: past_event1)
+booking2 = Booking.create!(user: user2 , event: past_event1)
+booking3 = Booking.create!(user: user3 , event: past_event1)
+booking4 = Booking.create!(user: user1 , event: past_event2)
+booking5 = Booking.create!(user: user2 , event: past_event3)
+booking6 = Booking.create!(user: user1 , event: past_event3)
 
