@@ -77,10 +77,22 @@ a:hover{
 }
 
 .dashboard-cards.completed {
-  background-color: white;
-  color: #FDDBDB;
+  background-color: #FDDBDB;
+  color: white;
   border: 1px solid #FDDBDB;
 
 }
 
 
+.dashboard-cards.upcoming.disable {
+  background-color: white;
+  color: #3F3D56;
+  margin-right: 15px;
+  border: 1px solid #747272;
+}
+
+.dashboard-cards.completed.disable {
+  background-color: white;
+  color: #FDDBDB;
+  border: 1px solid #747272;
+}
