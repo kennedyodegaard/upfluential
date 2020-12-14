@@ -13,12 +13,13 @@
 
 
 <div class="main-container">
+  <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, :back, class: "back-btn" %>
   <div class="show-banner-content">
     <h1><%= @organization.name %></h1>
     <a href="https://<%=@organization.website%>" target="_blank"> <%= @organization.website %></a>
-    
+
   </div>
-  
+
 
   <div class="edit-delete-details">
     <div class="org-detail">
@@ -29,6 +30,7 @@
           <p><%= @organization.location.split(" ")[-2..-1].join(" ") %></p>
         </div>
       </div>
+      <p><i class="fas fa-link"></i><%= @organization.website %></p>
     </div>
   </div>
 
