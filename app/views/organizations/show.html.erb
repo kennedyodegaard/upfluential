@@ -15,19 +15,20 @@
 <div class="main-container">
   <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, :back, class: "back-btn" %>
   <div class="show-banner-content">
-      <h1><%= @organization.name %></h1>
+    <h1><%= @organization.name %></h1>
+    <a href="https://<%=@organization.website%>" target="_blank"> <%= @organization.website %></a>
 
+  </div>
 
-  <div class="show-logo logo-position">
-    <img id="logo" src="<%= cl_image_path @organization.logo.key %>" alt="...">
-  </div>
-  </div>
 
   <div class="edit-delete-details">
     <div class="org-detail">
       <div class="location-icon">
         <i class="fas fa-map-marker-alt"></i>
-        <p><%= @organization.location %></p>
+        <div>
+          <p><%= @organization.location.split(" ")[0...-2].join(" ") %></p>
+          <p><%= @organization.location.split(" ")[-2..-1].join(" ") %></p>
+        </div>
       </div>
       <p><i class="fas fa-link"></i><%= @organization.website %></p>
     </div>
