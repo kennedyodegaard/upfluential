@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-    @events = Event.all
+    @events = Event.all.order(:start_time)
     if params[:query].present?
       @events = Event.search_by_location(params[:query])
     end
