@@ -4,7 +4,7 @@
 <div class="welcome">
   <h1 >Hello <%= current_user.first_name %></h1>
   <% if current_user.photo.attached? %>
-    <img class="avatar-dashboard avatar"  src=" <%= cl_image_path current_user.photo.key %> " alt="face">
+    <img class="avatar-dashboard avatar"  src=" <%= cl_image_path current_user.photo.key%> " alt="face">
   <% else %>
     <div class="avatar-dashboard no-pic-avatr">
     </div>
@@ -61,5 +61,9 @@
       <% end %>
     <% end %>
   </div>
- 
+  <%# <%= link_to "Edit your profile", edit_user_registration_path, class: "primary-button wit"%> %>
+  <br>
+  <br>
+   <br>
+   <br>
 </div>
