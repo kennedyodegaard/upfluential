@@ -1,5 +1,7 @@
 import mapboxgl from 'mapbox-gl';
 
+let map = null;
+
 const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
@@ -8,25 +10,31 @@ const buildMap = (mapElement) => {
   });
 };
 
-const addMarkersToMap = (map, markers) => {
+const addMarkersToMap = (markers) => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 
       const element = document.createElement('div');
       element.className = 'marker';
+
       element.style.backgroundImage = `url('${marker.image_url}')`;
       element.style.backgroundSize = 'cover';
       element.style.width = '17px';
       element.style.height = '25px';
 
-    new mapboxgl.Marker(element)
+    const mapboxMarker = new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
-      .setPopup(popup)
-      .addTo(map);
+
+
+    if (marker.infoWindow) {
+      mapboxMarker.setPopup(popup)
+    }
+
+    mapboxMarker.addTo(map);
   });
 };
 
-const fitMapToMarkers = (map, markers) => {
+const fitMapToMarkers = (markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
   map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
@@ -35,13 +43,15 @@ const fitMapToMarkers = (map, markers) => {
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
   if (mapElement) {
-    const map = buildMap(mapElement);
+    map = buildMap(mapElement);
     const markers = JSON.parse(mapElement.dataset.markers);
     console.log(mapElement.dataset);
-    addMarkersToMap(map, markers);
-    fitMapToMarkers(map, markers);
+    if (markers && Array.isArray(markers)) {
+      addMarkersToMap(markers);
+      fitMapToMarkers(markers);
+    }
   }
 };
 
 
-export { initMapbox };
+export { initMapbox, addMarkersToMap, fitMapToMarkers };

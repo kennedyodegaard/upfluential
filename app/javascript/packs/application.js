@@ -29,13 +29,13 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 
 import { initMapbox } from '../plugins/init_mapbox';
-import { setUpEventSearchPills } from '../plugins/event_pills';
+import { setUpEventSearchPills } from '../components/event_pills';
 import { initDownArrow } from '../components/init_down_arrow';
-import { initAutocomplete } from '../plugins/init_autocomplete'
+import { initAutocomplete } from '../plugins/init_autocomplete';
 
 document.addEventListener('turbolinks:load', () => {
+  initAutocomplete();
   initMapbox();
   setUpEventSearchPills();
   initDownArrow();
-  initAutocomplete();
 })

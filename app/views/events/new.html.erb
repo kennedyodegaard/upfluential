@@ -4,18 +4,18 @@
   <div class="create-event-form">
   <%= simple_form_for(@event) do |f| %>
     <%= f.input :title , input_html: {class: "rounded-search"} %>
-    <%= f.input :description, input_html: {class: "rounded-search"} %>
-    <%= f.input :category, collection: Event.categories, input_html: {class: "rounded-search"}%>
-    <%= f.input :capacity, input_html: {class: "rounded-search"} %>
-    <%= f.input :start_time, input_html: {class: "rounded-search"} %>
-    <%= f.input :end_time, input_html: {class: "rounded-search"} %>
-    <%= f.input :location, input_html: {class: "rounded-search location"} %>
+    <%= f.input :description, input_html: {class: "rounded-input"} %>
+    <%= f.input :category, collection: Event.categories, input_html: {class: "rounded-input"}%>
+    <%= f.input :capacity, input_html: {class: "rounded-input"} %>
+    <%= f.input :start_time, input_html: {class: "rounded-input"} %>
+    <%= f.input :end_time, input_html: {class: "rounded-input"} %>
+    <%= f.input :location, input_html: {class: "rounded-input"} %>
     <div id="map" class="mb-3"
        style="width: 100%; height: 200px;"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-    <%= f.input :photos, as: :file, :multiple => true, input_html: { class: 'd-none'}, label_html: { class: 'primary-button'}  %>
+    <%= f.input :photos, as: :file, input_html: { class: 'd-none', multiple: true }, label_html: { class: 'primary-button'}  %>
     <%= f.submit input_html: { class: 'd-none'}, label_html: { class: 'primary-button' }  %>
   <% end %>
   </div>
