@@ -5,7 +5,8 @@ class PagesController < ApplicationController
   end
   def dashboard
     @booking = current_user.bookings
-    @events = current_user.events
+    @upcoming_events = current_user.events.where("start_time > ?", Time.now)
+    @completed_events = current_user.events.where("end_time < ?", Time.now)
   end
   
 
