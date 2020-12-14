@@ -5,7 +5,7 @@ const addressInput = document.getElementById('event_location');
 
 const initAutocomplete = () => {
   const placesAutocomplete = places({
-      container: document.querySelector('#event_location')
+      container: addressInput
     });
 
   placesAutocomplete.on('change', e => handleOnChange(e));
