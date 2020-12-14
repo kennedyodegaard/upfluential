@@ -22,18 +22,18 @@
       <h1 class="mb-0"><%= current_user.events.size %></h1>
       <p>upcoming events</p>
     </div>
-    <div class="dashboard-cards completed">
+    <div class="dashboard-cards completed disable">
       <h1 class="mb-0"><%= current_user.events.completed.size %></h1>
       <p>Completed Events</p>
     </div>
   </div>
-  <div class="upcoming-events d-none">
+  <div class="upcoming-events">
     <%= render 'events/event_list', events: @upcoming_events%>
   </div>
    <div class="completed-events d-none">
     <%= render 'events/event_list', events: @completed_events%>
   </div>
-  <%# <%= link_to "Edit your profile", edit_user_registration_path, class: "primary-button wit"%> %>
+  <%= link_to "Edit your profile", edit_user_registration_path, class: "primary-button wit"%>
   <br>
   <br>
    <br>

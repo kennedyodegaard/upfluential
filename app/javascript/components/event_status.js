@@ -7,15 +7,17 @@ const  completedEvents = document.querySelector(".completed-events");
 const checkActivityStatus = () => {
     if (upcomingEvents) {
       upcomingButton.addEventListener('click', (event) =>  {
-        upcomingEvents.classList.toggle("d-none");
+        upcomingEvents.classList.remove("d-none");
         completedEvents.classList.add("d-none");
-        event.curretTarget.classList.remove(".dashboard-cards.upcoming")
-        event.curretTarget.classList.add(".dashboard-cards.upcoming.disable")
+        completedButton.classList.add("disable")
+        upcomingButton.classList.remove("disable")
       });
 
      completedButton.addEventListener('click', (event) =>  {
-        completedEvents.classList.toggle("d-none");
+        completedEvents.classList.remove("d-none");
         upcomingEvents.classList.add("d-none");
+        upcomingButton.classList.add("disable")
+        completedButton.classList.remove("disable")
     });
     }
   }

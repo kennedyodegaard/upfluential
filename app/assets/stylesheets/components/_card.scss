@@ -77,8 +77,8 @@ a:hover{
 }
 
 .dashboard-cards.completed {
-  background-color: white;
-  color: #FDDBDB;
+  background-color: #FDDBDB;
+  color: white;
   border: 1px solid #FDDBDB;
 
 }
@@ -92,7 +92,7 @@ a:hover{
 }
 
 .dashboard-cards.completed.disable {
-  background-color: #FDDBDB;
-  color: white;
+  background-color: white;
+  color: #FDDBDB;
   border: 1px solid #747272;
 }
