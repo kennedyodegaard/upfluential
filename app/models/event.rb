@@ -42,9 +42,15 @@ class Event < ApplicationRecord
     ["community", "environment", "youth", "seniors", "animals", "LGBTQ+", "culture", "outdoors", "indoors", "virtual", "sports"]
   end
 
-  def cta_content
+  def already_joined?(user)
+    user.bookings.any? { |booking| booking.event == self}
+  end
+
+  def cta_content(user)
     if self.is_full?
       '<p class="pl-2 pr-2 mb-0">SORRY, THIS EVENT IS FULL </p><i class="fas fa-exclamation-triangle"></i>'
+    elsif self.already_joined?(user)
+      '<p class="pl-2 pr-2 mb-0">YOU\'RE ALREADY REGISTERED </p><i class="fas fa-exclamation-triangle"></i>'
     else
       "<p class=\"mb-0\">#{self.available_spots} SPOTS LEFT <i class=\"fas fa-user-plus\"></i></p>"
     end
