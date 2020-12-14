@@ -19,7 +19,7 @@
   </div>
   <div class="status-card">
     <div class="dashboard-cards upcoming">
-      <h1 class="mb-0"><%= current_user.events.size %></h1>
+      <h1 class="mb-0"><%= current_user.events.size - current_user.events.completed.size %></h1>
       <p>upcoming events</p>
     </div>
     <div class="dashboard-cards completed disable">
