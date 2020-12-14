@@ -1,9 +1,10 @@
 .welcome {
+  padding-top: 10px;
   display: block;
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
-    h1 {
+    h3 {
     text-align: center;
     }
 }
@@ -12,5 +13,13 @@
     display: block;
   margin-left: auto;
   margin-right: auto;
+  height: 80px;
+  width: 80px;
+
 }
 
+.personal-vol-info p {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 5px;
+}

@@ -31,11 +31,14 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { setUpEventSearchPills } from '../components/event_pills';
 import { initDownArrow } from '../components/init_down_arrow';
+
 import { initAutocomplete } from '../plugins/init_autocomplete';
+import { checkActivityStatus } from '../components/event_status';
 
 document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initMapbox();
   setUpEventSearchPills();
   initDownArrow();
+  checkActivityStatus();
 })

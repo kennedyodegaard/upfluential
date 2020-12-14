@@ -18,6 +18,8 @@
   left: 20px;
   color: white;
   opacity: 0.9;
+  text-shadow: 8px 8px 16px #000000;
+
 
   h1 {
     letter-spacing: -1px;
@@ -26,6 +28,14 @@
   p{
     color: $primary;
   }
+}
+
+.back-btn {
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  text-shadow: 8px 8px 16px #000000;
+  color: $white;
 }
 
 .edit-delete-details{

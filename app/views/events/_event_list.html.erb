@@ -1,0 +1,32 @@
+<div class="cards-container mt-2">
+      <% events.each do |event|  %>
+        <%= link_to event_path(event), class: 'link-style' do %>
+          <div class="event-card">
+            <% if event.photos.attached? %>
+              <img src="<%= cl_image_path event.photos.first.key %>" alt="..." id="event-image">
+              <% else %>
+              <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607524305/nx5c2nwp3ragtvuihxeui53bqcph.jpg" id="event-image">
+              <% end %>
+            <div class="card-information">
+              <div class="card-info" id="event_<%= event.id %>">
+                <p><i class="far fa-calendar-alt"></i>  <%= event.start_time.strftime("%A, %b %d") %></p>
+                  <% if current_user.favorited?(event) %>
+                    <%= link_to event_favorite_path(event), method: :delete do %>
+                      <i class="fas fa-heart"></i>
+                    <% end %>
+                  <% else %>
+                    <%= link_to event_favorites_path(event), method: :post do %>
+                      <i class="far fa-heart"></i>
+                    <% end %>
+                  <% end %>
+              </div>
+              <h6><%= event.title %></h6>
+              <div class="card-info2">
+                <p><%= event.organization.name %></p>
+                <p><%= event.capacity %> spots</p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>

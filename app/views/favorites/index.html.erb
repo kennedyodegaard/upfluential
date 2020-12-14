@@ -1,4 +1,18 @@
+<div class="banner fav-banner">
+  <%= render 'shared/logo-login-purple' %>
+
+  <h4 class="mt-4">My Favorite Events</h4>
+
+</div>
 <div class="main-container">
+    <div class="mt-3 search-form">
+       <%= form_tag events_path, method: :get, class: "events-search-form" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control rounded-search mb-3 index-search", placeholder: "Search by keyword / category / location..."%>
+          <%= hidden_field_tag :category, class: "events-search-category" %>
+        <% end %>
+    </div>
 <div class="cards-container mt-2">
   <%  @favorite_events.each do |event| %>
     <%= link_to event_path(event), class: 'link-style' do %>
@@ -23,12 +37,13 @@
           </div>
           <h6><%= event.title %></h6>
           <div class="card-info2">
-            <p><%= event.user.first_name %> <%= event.user.last_name %></p>
+            <p><%= event.organization.name %></p>
             <p><%= event.capacity %> spots</p>
           </div>
         </div>
       </div>
     <% end %>
   <% end %>
+</div>
 </div>
 </div>

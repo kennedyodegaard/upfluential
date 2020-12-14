@@ -49,37 +49,50 @@ a:hover{
 .status-card {
   display: flex;
   margin-bottom: 10px;
+  justify-content: space-between;
 }
 
-.upcoming-card {
+.dashboard-cards {
   height: 151px;
-  width: 150px;
   border-radius: 13px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 47%;
+  padding: 15px;
+  margin: 10px 0;
+
+  p {
+    font-weight: lighter;
+    line-height: 1;
+  }
+}
+
+.dashboard-cards.upcoming {
   background-color: #3F3D56;
   color: white;
   margin-right: 15px;
-
-  h3 {
-  padding-top: 15px;
-  text-align: center;
-  font-weight: 200;
-  }
 }
 
-.completed-card {
-  height: 151px;
-  width: 150px;
-  border-radius: 13px;
+.dashboard-cards.completed {
+  background-color: #FDDBDB;
+  color: white;
+  border: 1px solid #FDDBDB;
+
+}
+
+
+.dashboard-cards.upcoming.disable {
+  background-color: white;
+  color: #3F3D56;
+  margin-right: 15px;
+  border: 1px solid #747272;
+}
+
+.dashboard-cards.completed.disable {
   background-color: white;
   color: #FDDBDB;
-  border-color: #FDDBDB;
-  border-width: 1px;
-  border-style: solid;
-  display: flex;
-  align-items: center;
-  h3 {
-    text-align: center;
-    vertical-align: middle;
-    font-weight: 200;
-  }
+  border: 1px solid #747272;
 }
