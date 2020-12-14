@@ -96,3 +96,34 @@ a:hover{
   color: #FDDBDB;
   border: 1px solid #747272;
 }
+
+.dashboard-cards-my-event {
+  height: 80px;
+  width: 100%;
+  border-radius: 13px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 20px;
+  margin: 10px 0;
+  background-color: #3F3D56;
+  color: white;
+  margin-right: 15px;
+  border: 1px solid #747272;
+}
+
+.dashboard-cards-my-event.disable {
+  height: 80px;
+  width: 100%;
+  border-radius: 13px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 20px;
+  margin: 10px 0;
+  background-color: white;
+  color: #3F3D56;
+  margin-right: 15px;
+  border: 1px solid #747272;
+  opacity: 0.2;
+}
