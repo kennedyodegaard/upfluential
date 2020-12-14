@@ -112,4 +112,11 @@ event_photo6 = URI.open("https://images.unsplash.com/photo-1517048676732-d65bc93
 event6.photos.attach(io: event_photo6, filename: "event_photo6.png", content_type: "image/png")
 event6.save
 
+# organization
+organization5 = Organization.new(name: "Fundacion Lucha", website: "https://www.flsida.org", description: "Fundacion Lucha provides sensitive, quality health care and related services targeted to Barcelona’s lesbian, gay, bisexual, and transgender communities — in all their diversity — regardless of ability to pay. To further this mission, Fundacion Lucha promotes health education and wellness, and advocates for LGBTQ health issues.", location: "Carrer de Roger de Llúria, 13, 08010 Barcelona", user: user3)
+organization_logo5 = URI.open("https://www.flsida.org/sites/default/files/logotipo.png")
+organization5.logo.attach(io: organization_logo5, filename: "organization_logo5.png", content_type: "image/png")
+banner5 = URI.open("https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8ZG9jdG9yc3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
+organization5.photos.attach(io: banner5, filename: "banner5.png", content_type: "image/png")
+organization5.save
 

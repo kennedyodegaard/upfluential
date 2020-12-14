@@ -1,19 +1,20 @@
 <%= render 'shared/logo-login-purple' %>
-  <% if @event.photos.attached? %>
-    <div class="show-banner-img" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4),
+<% if @event.photos.attached? %>
+  <div class="show-banner-img" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4),
   rgba(0, 0, 0, 0.4)), url('<%= cl_image_path @event.photos.first.key %>');" id="show-image">
-    </div>
-  <% else %>
-    <div class="show-banner-img">
-      <img src="https://images.unsplash.com/photo-1561026555-13539e82532f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=967&q=80" id="show-image">
-    </div>
-  <% end %>
+  </div>
+<% else %>
+  <div class="show-banner-img">
+    <img src="https://images.unsplash.com/photo-1561026555-13539e82532f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=967&q=80" id="show-image">
+  </div>
+<% end %>
 
 <div class="main-container">
   <div class=show-banner-content>
-      <h1><%= @event.title %></h1>
-      <p>Organized by <%= link_to organization_path(@event.organization) do %><%= @event.organization.name %></p><% end %>
+    <h1><%= @event.title %></h1>
+    <p>Organized by <%= link_to organization_path(@event.organization) do %><%= @event.organization.name %></p><% end %>
   </div>
+
   <div class="edit-delete-details">
     <div class="event-details">
       <div class="event-detail">
@@ -26,6 +27,7 @@
         <i class="far fa-clock"></i><p><%= @event.start_time.strftime("%I:%M %p") %> - <%= @event.end_time.strftime("%I:%M %p") %></p>
       </div>
     </div>
+    
     <% if @event.user == current_user %>
       <div class="icons">
         <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, event_path(@event), method: :delete,
