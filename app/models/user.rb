@@ -22,4 +22,8 @@ class User < ApplicationRecord
     end
     sum
   end
+
+  def booked_for?(event)
+    self.bookings.any? { |booking| booking.event == event}
+  end
 end

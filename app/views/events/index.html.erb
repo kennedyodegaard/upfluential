@@ -61,15 +61,21 @@
           <div class="card-information">
             <div class="card-info" id="event_<%= event.id %>">
               <p><i class="far fa-calendar-alt"></i>  <%= event.start_time.strftime("%A, %b %d") %></p>
+              <% if user_signed_in? %>
                 <% if current_user.favorited?(event) %>
-                  <%= link_to event_favorite_path(event), method: :delete do %>
+                  <%= link_to event_favorite_path(event), method: :delete, remote: true do %>
                     <i class="fas fa-heart"></i>
                   <% end %>
                 <% else %>
-                  <%= link_to event_favorites_path(event), method: :post do %>
+                  <%= link_to event_favorites_path(event), method: :post, remote: true do %>
                     <i class="far fa-heart"></i>
                   <% end %>
                 <% end %>
+              <% else %>
+                <%= link_to event_favorites_path(event), method: :post do %>
+                  <i class="far fa-heart"></i>
+                <% end %>
+              <% end %>
             </div>
             <h6><%= event.title %></h6>
             <div class="card-info2">

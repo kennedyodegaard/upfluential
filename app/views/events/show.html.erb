@@ -10,6 +10,8 @@
   <% end %>
 
 <div class="main-container">
+  <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, :back, class: "back-btn" %>
+
   <div class=show-banner-content>
       <h1><%= @event.title %></h1>
       <p>Organized by <%= link_to organization_path(@event.organization) do %><%= @event.organization.name %></p><% end %>
@@ -64,8 +66,8 @@
   <%= simple_form_for [@event, @booking] do |f| %>
     <%= f.input :attending, as: :hidden, input_html: {value: true} %>
     <input  type="submit" id="submit-booking" style="position: absolute; left: -100vw;">
-    <label class="<%= 'disabled' if @event.is_full? %> primary-button d-flex align-items-center justify-content-center" for="submit-booking">
-        <%= @event.cta_content.html_safe %> </label>
+    <label class="<%= 'disabled' if (@event.is_full? || @event.already_joined?(current_user)) %> primary-button d-flex align-items-center justify-content-center" for="submit-booking">
+        <%= @event.cta_content(current_user).html_safe %> </label>
   <% end %>
 
   <div class="map-container">

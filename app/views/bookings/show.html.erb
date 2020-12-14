@@ -1,7 +1,7 @@
   <%= render 'shared/logo-login-white' %>
   <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607506215/upfluential_hero_illustration_r2e0xb.png" alt="" id="hero-image">
   <div class="main-container">
-    <h3 class="text-center" style= "margin-top: 20px;">You have just joined <%= @booking.event.title %></h3>
+    <h3 class="text-center" style= "margin-top: 20px;"><span class="font-weight-light">You have just joined</span> <%= @booking.event.title %>!</h3>
     <ul style="list-style: none; display:table; margin-top:20px">
           <li class="p-1 booking-list"><i class="fas fa-map-marker-alt"></i> <%= @booking.event.location %></li>
           <li class="p-1 booking-list" ><i class="far fa-calendar-alt"></i> <%= @booking.event.start_time.strftime("%b %d, %Y") %></li>
