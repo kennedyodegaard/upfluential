@@ -18,14 +18,14 @@
   left: 20px;
   color: white;
   opacity: 0.9;
-  text-shadow: 8px 8px 16px #000000;
-
-
+  
+  
   h1 {
     letter-spacing: -1px;
+    text-shadow: 8px 8px 16px #000000;
   }
 
-  p{
+  a, p {
     color: $primary;
   }
 }
