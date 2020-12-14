@@ -10,15 +10,16 @@
   </div>
 <% end %>
 
-  
+
 
 <div class="main-container">
   <div class="show-banner-content">
-      <h1><%= @organization.name %></h1>    
-  </div>
+      <h1><%= @organization.name %></h1>
 
-  <div class="avatar-square logo-position">
-    <img src="<%= cl_image_path @organization.logo.key %>" alt="...">
+
+  <div class="show-logo logo-position">
+    <img id="logo" src="<%= cl_image_path @organization.logo.key %>" alt="...">
+  </div>
   </div>
 
   <div class="edit-delete-details">
@@ -30,17 +31,17 @@
       <p style="margin-left: 20px;"><%= @organization.website %></p>
     </div>
   </div>
-        
+
   <div class="about">
     <h3>About Our Organization</h3>
     <p class="font-weight-light" style="font-size: 14px;"><%= @organization.description %></p>
   </div>
-      
+
   <div class="events">
     <h3>Upcoming Events</h3>
     <div class="cards-container mt-2">
       <% if @organization.events.empty? %>
-          <p id="no-events" class="font-weight-light">No upcoming events, go to volunteermatch.org </p> 
+          <p id="no-events" class="font-weight-light">No upcoming events, go to volunteermatch.org </p>
         <% else %>
             <% @organization.events.each do |event|  %>
               <%= link_to event_path(event), class: 'link-style' do %>
@@ -72,7 +73,7 @@
                 </div>
               <% end %>
             <% end %>
-        <% end %> 
+        <% end %>
       </div>
     </div>
   </div>
