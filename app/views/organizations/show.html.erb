@@ -13,6 +13,7 @@
 
 
 <div class="main-container">
+  <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, :back, class: "back-btn" %>
   <div class="show-banner-content">
       <h1><%= @organization.name %></h1>
 
@@ -28,7 +29,7 @@
         <i class="fas fa-map-marker-alt"></i>
         <p><%= @organization.location %></p>
       </div>
-      <p style="margin-left: 20px;"><%= @organization.website %></p>
+      <p><i class="fas fa-link"></i><%= @organization.website %></p>
     </div>
   </div>
 
