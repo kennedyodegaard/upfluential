@@ -34,8 +34,12 @@ import { initDownArrow } from '../components/init_down_arrow';
 
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { checkActivityStatus } from '../components/event_status';
+
+import { showAttendees } from '../components/show_attendees';
+
 import { initGlide } from '../components/glide';
 import { initChatroomCable } from '../channels/chatroom_channel';
+
 
 document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
@@ -43,6 +47,7 @@ document.addEventListener('turbolinks:load', () => {
   setUpEventSearchPills();
   initDownArrow();
   checkActivityStatus();
+  showAttendees();
   initGlide();
   initChatroomCable();
 })
