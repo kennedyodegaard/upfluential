@@ -1,21 +1,46 @@
-.logo-login-white {
+.nav-container-white {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo-white {
   padding-top: 10px;
   display: flex;
   justify-content: space-between;
   background: white;
+  p, a {
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-left: 20px;
+    padding-bottom: 5px;
+    color: $body-color;
+   }
 }
 
-.nav-container-white {
-  margin: auto;
-  p, a {
-   padding-right: 10px;
-   padding-left: 20px;
-   padding-bottom: 8px;
-   color: $body-color;
-   }
+.dropdown{
+  padding-top: 7px;
+  padding-right: 20px;
+  padding-bottom: 5px;
 }
 
 .login {
   font-weight: lighter;
   font-size: 7px;
+}
+
+.dropdown-menu{
+  p, a{
+    color: $body-color;
+    padding-left: 10px;
+    font-size: 14px;
+  }
+  .dropdown-menu-right{
+    .show{
+      display: block;
+      min-width: 8rem;
+      margin: 0.5rem 0 0;
+      border-radius: 10px;
     }
+  }
+}
