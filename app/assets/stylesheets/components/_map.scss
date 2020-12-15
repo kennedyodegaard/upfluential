@@ -10,6 +10,10 @@
   border-radius: 16px;
 }
 
+.mapboxgl-popup-close-button {
+  color: $body-color;
+}
+
 #map {
   margin-bottom: 60px;
 }
@@ -42,4 +46,13 @@
   p {
     margin-top: 0;
   }
+
+  h1, h6, p {
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+}
+
+#calendar-in-map {
+  color: $primary;
 }
