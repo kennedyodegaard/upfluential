@@ -21,5 +21,10 @@
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+    <div class="centered-button-container">
+      <%= link_to events_path do %>
+        <a href="/events" class="map-view-button sticky"><i class="fas fa-list-ul"></i>  List View</a>
+      <% end %>
+    </div>
   </div>
 </div>
