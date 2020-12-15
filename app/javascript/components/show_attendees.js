@@ -7,7 +7,6 @@ const showAttendees = () => {
     arrowsDown.forEach((arrow) => {
       arrow.addEventListener('click', (event) => {
         event.currentTarget.nextElementSibling.classList.toggle('d-none');
-        event.currentTarget.parentNode.classList.toggle('open');
       });
     });
   }

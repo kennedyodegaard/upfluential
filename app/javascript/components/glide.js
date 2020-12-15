@@ -1,7 +1,6 @@
 import Glide, { Arrows } from '@glidejs/glide'
 
 const initGlide = () => {
-    console.log('consolggggggghhhh')
     new Glide('.glide', {
         type: 'carousel',
         animationDuration: 1000,
