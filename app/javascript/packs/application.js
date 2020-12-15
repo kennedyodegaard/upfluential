@@ -34,6 +34,7 @@ import { initDownArrow } from '../components/init_down_arrow';
 
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { checkActivityStatus } from '../components/event_status';
+import { initGlide } from '../components/glide';
 
 document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
@@ -41,4 +42,5 @@ document.addEventListener('turbolinks:load', () => {
   setUpEventSearchPills();
   initDownArrow();
   checkActivityStatus();
+  initGlide();
 })
