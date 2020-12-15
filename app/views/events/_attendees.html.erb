@@ -1,7 +1,9 @@
+
+
 <div class="cards-container mt-2">
       <% events.each do |event|  %>
-        <%= link_to event_path(event), class: 'link-style' do %>
-          <div class="event-card">
+          <div class="event-card-attendees">
+            <div class="content-flex">
             <% if event.photos.attached? %>
               <img src="<%= cl_image_path event.photos.first.key %>" alt="..." id="event-image">
               <% else %>
@@ -26,7 +28,21 @@
                 <p><%= event.capacity %> spots</p>
               </div>
             </div>
-          </div>
-        <% end %>
+              </div>
+              <div class="arrow-down-attendees">
+              <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="event-attendees d-none">
+              <h3>Who's coming</h3>
+              <div class="user-grid">
+                <% event.bookings.each do |booking| %>
+                <div class="user-box">
+                  <img class="avatar-event" src=" <%= cl_image_path booking.user.photo.key %> " alt="face">
+                  <p class="name-tag"><%= booking.user.first_name %></p>
+                </div>
+                <% end %>
+              </div>
+            </div>
+       </div>
       <% end %>
     </div>
