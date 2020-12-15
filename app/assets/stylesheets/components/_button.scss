@@ -33,3 +33,20 @@ text-decoration: none !important;
   opacity: 0.6;
 }
 
+.map-view-button {
+  border-radius: 20px;
+  background: $body-color;
+  color: $white;
+  font-size: $label;
+  padding: 7px 15px;
+  margin-bottom: 55px;
+}
+
+p{
+  margin-bottom: 5px;
+}
+
+.centered-button-container {
+  display: flex;
+  justify-content: center;
+}
