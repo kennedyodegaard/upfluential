@@ -38,6 +38,7 @@ import { checkActivityStatus } from '../components/event_status';
 import { showAttendees } from '../components/show_attendees';
 
 import { initGlide } from '../components/glide';
+import { initChatroomCable } from '../channels/chatroom_channel';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -48,4 +49,5 @@ document.addEventListener('turbolinks:load', () => {
   checkActivityStatus();
   showAttendees();
   initGlide();
+  initChatroomCable();
 })

@@ -6,6 +6,8 @@ class Event < ApplicationRecord
   has_many :bookings
   has_many :users, through: :bookings
 
+  has_one :chatroom
+
   acts_as_favoritable
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
@@ -15,12 +17,18 @@ class Event < ApplicationRecord
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
-  validates :category, inclusion: { in: ["community", "environment", "youth", "seniors", "animals", "LGBTQ+", "culture", "outdoors", "indoors", "virtual", "sports"] }
+  
 
+  validates :category, inclusion: { in: ["community", "environment", "youth", "seniors", "animals", "LGBTQ+", "culture", "outdoors", "indoors", "virtual", "sports"] }
+  
   scope :completed, -> {where("end_time < ?", Time.now)}
 
   validates_length_of :title, maximum: 28
+  after_create :create_chatroom
 
+  def create_chatroom
+    self.chatroom = Chatroom.create
+  end
 
   def available_spots
     (self.capacity - self.bookings.count)
