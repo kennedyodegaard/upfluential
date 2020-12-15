@@ -1,11 +1,9 @@
 <div class="banner fav-banner">
   <%= render 'shared/logo-login-purple' %>
-
-  <h4 class="mt-4">My Favorite Events</h4>
-
+  <h4 class="mt-2">My Favorite Events</h4>
 </div>
-<div class="main-container">
-    <div class="mt-3 search-form">
+<div class="main-container position-relative">
+    <div class="search-form position-absolute" style="z-index: 1100; width: 325px; left: 0; right: 0; margin: auto; top: -22.5px;">
        <%= form_tag events_path, method: :get, class: "events-search-form" do %>
         <%= text_field_tag :query,
           params[:query],
@@ -13,7 +11,7 @@
           <%= hidden_field_tag :category, class: "events-search-category" %>
         <% end %>
     </div>
-<div class="cards-container mt-2">
+<div class="cards-container" style="padding-top: 30px;">
   <%  @favorite_events.each do |event| %>
     <%= link_to event_path(event), class: 'link-style' do %>
       <div class="event-card">
@@ -44,6 +42,5 @@
       </div>
     <% end %>
   <% end %>
-</div>
 </div>
 </div>
