@@ -30,6 +30,7 @@
 .details-filter{
   display: flex;
   justify-content: space-between;
+  padding-top: 30px;
   p {
     font-size: $label;
   }
@@ -47,6 +48,10 @@
     text-decoration: none !important;
     color: $body-color !important;
   }
+}
+
+.link-style:focus {
+  outline: none;
 }
 
 .cards-container{
@@ -83,4 +88,3 @@ h3 {
 p {
   font-size: 18px;
 }
-

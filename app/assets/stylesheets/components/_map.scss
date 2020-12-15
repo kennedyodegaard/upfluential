@@ -5,8 +5,54 @@
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Roboto', sans-serif;
+  position: relative;
+  padding: 0px;
+  border-radius: 16px;
+}
+
+.mapboxgl-popup-close-button {
+  color: $body-color;
 }
 
 #map {
   margin-bottom: 60px;
+}
+
+.map-event-card {
+  text-align: left;
+  line-height: 1;
+  margin-bottom: 0;
+
+  // .card-information {
+  //   display:block;
+  //   width:100px;
+  // }
+
+  .card-info2 {
+    height: 1rem;
+    // text-overflow: ellipsis;
+    // white-space: nowrap;
+    // overflow: hidden;
+    // width: 80px;
+    // display:inline-block;
+    margin-bottom: 0;
+  }
+
+  .mapboxgl-popup-content {
+    padding: 0px;
+    border-radius: 16px !important;
+  }
+
+  p {
+    margin-top: 0;
+  }
+
+  h1, h6, p {
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+}
+
+#calendar-in-map {
+  color: $primary;
 }

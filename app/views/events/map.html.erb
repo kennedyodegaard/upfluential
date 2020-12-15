@@ -1,14 +1,14 @@
 <div class="banner">
   <%= render 'shared/logo-login-purple' %>
   <%  if params[:query].present? %>
-     <h4 class="mt-4">Events in <%= params[:query].capitalize %></h4>
+     <h4 class="mt-2">Events in <%= params[:query].capitalize %></h4>
   <% else %>
-     <h4 class="mt-4">All results</h4>
+     <h4 class="mt-2">All results</h4>
   <% end %>
-
+</div>
   <div class="main-container position-relative w-100">
 
-    <div class="search-form position-absolute" style="z-index: 1100; width: 325px; left: 0; right: 0; margin: auto; top: -50%;">
+    <div class="search-form position-absolute" style="z-index: 1100; width: 325px; left: 0; right: 0; margin: auto; top: -22.5px;">
        <%= form_tag map_path, method: :get, class: "events-search-form" do %>
         <%= text_field_tag :query,
           params[:query],
@@ -17,9 +17,14 @@
         <% end %>
     </div>
     <div id="map"
-      style="height: 90vh; position: absolute; top: 0; left: 0; right: 0; top: 22.5px; border-radius: 0px;"
+      style="height: 90vh; position: absolute; top: 0; left: 0; right: 0; border-radius: 0px;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+    <div class="centered-button-container">
+      <%= link_to events_path do %>
+        <a href="/events" class="map-view-button sticky"><i class="fas fa-list-ul"></i>  List View</a>
+      <% end %>
+    </div>
   </div>
-</div>
+

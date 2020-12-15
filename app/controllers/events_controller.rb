@@ -62,7 +62,7 @@ class EventsController < ApplicationController
       {
         lat: event.latitude,
         lng: event.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { event: event }),
+        infoWindow: render_to_string(partial: "map_event_card", locals: { event: event }),
         image_url: helpers.asset_url('https://res.cloudinary.com/kennedyodegaard/image/upload/v1607525650/Grouppinpoint_i8hcsk.png')
       }
     end

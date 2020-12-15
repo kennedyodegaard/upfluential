@@ -1,90 +1,63 @@
 <div class="banner">
   <%= render 'shared/logo-login-purple' %>
   <%  if params[:query].present? %>
-     <h4 class="mt-4">Events in <%= params[:query].capitalize %></h4>
+     <h4 class="mt-2">Events in <%= params[:query].capitalize %></h4>
   <% else %>
-     <h4 class="mt-4">All results</h4>
+     <h4 class="mt-2">All results</h4>
   <% end %>
+</div>
+<div class="main-container position-relative">
+  <div class="search-form position-absolute" style="z-index: 1100; width: 325px; left: 0; right: 0; margin: auto; top: -22.5px;">
+     <%= form_tag events_path, method: :get, class: "events-search-form" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control rounded-search mb-3 index-search", placeholder: "Search by keyword / category / location..."%>
+        <%= hidden_field_tag :category, class: "events-search-category" %>
+      <% end %>
+  </div>
+  <div class="details-filter">
+    <p><%= @events.count %> events found</p>
+  </div>
 
-  <div class="main-container">
-    <div class="search-form">
-       <%= form_tag events_path, method: :get, class: "events-search-form" do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control rounded-search mb-3 index-search", placeholder: "Search by keyword / category / location..."%>
-          <%= hidden_field_tag :category, class: "events-search-category" %>
-        <% end %>
-    </div>
-    <div class="details-filter">
-      <p><%= @events.count %> missions found</p>
-    </div>
+  <div class="category-group-visible ml-3 mt-1">
+    <div class="row">
 
-    <div class="category-group-visible ml-3 mt-1">
-      <div class="row">
-
-        <% @events.categories.in_groups_of(4)[0].each do |item| %>
-          <% unless item.nil? %>
-            <%= render "shared/event-category-pill", item: item, selected: item == @category %>
-          <% end %>
-        <% end %>
-        <i class="fas fa-chevron-down" id="more-categories"></i>
-        </div>
-      </div>
-      <div class="category-group hide ml-3">
-      <div class="row">
-        <% @events.categories.in_groups_of(4)[1].each do |item| %>
-          <% unless item.nil? %>
-            <%= render "shared/event-category-pill", item: item, selected: item == @category %>
-          <% end %>
-        <% end %>
-        </div>
-      </div>
-      <div class="category-group hide ml-3">
-      <div class="row">
-        <% @events.categories.in_groups_of(4)[2].each do |item| %>
-          <% unless item.nil? %>
+      <% @events.categories.in_groups_of(4)[0].each do |item| %>
+        <% unless item.nil? %>
           <%= render "shared/event-category-pill", item: item, selected: item == @category %>
-          <% end %>
         <% end %>
-        </div>
+      <% end %>
+      <i class="fas fa-chevron-down" id="more-categories"></i>
       </div>
-    <div class="cards-container mt-2">
+    </div>
+    <div class="category-group hide ml-3">
+    <div class="row">
+      <% @events.categories.in_groups_of(4)[1].each do |item| %>
+        <% unless item.nil? %>
+          <%= render "shared/event-category-pill", item: item, selected: item == @category %>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+    <div class="category-group hide ml-3">
+    <div class="row">
+      <% @events.categories.in_groups_of(4)[2].each do |item| %>
+        <% unless item.nil? %>
+        <%= render "shared/event-category-pill", item: item, selected: item == @category %>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+  <div class="cards-container mt-2">
     <% @events.each do |event|  %>
       <%= link_to event_path(event), class: 'link-style' do %>
-        <div class="event-card">
-          <% if event.photos.attached? %>
-             <img src="<%= cl_image_path event.photos.first.key %>" alt="..." id="event-image">
-            <% else %>
-             <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607524305/nx5c2nwp3ragtvuihxeui53bqcph.jpg" id="event-image">
-            <% end %>
-          <div class="card-information">
-            <div class="card-info" id="event_<%= event.id %>">
-              <p><i class="far fa-calendar-alt"></i>  <%= event.start_time.strftime("%A, %b %d") %></p>
-              <% if user_signed_in? %>
-                <% if current_user.favorited?(event) %>
-                  <%= link_to event_favorite_path(event), method: :delete, remote: true do %>
-                    <i class="fas fa-heart"></i>
-                  <% end %>
-                <% else %>
-                  <%= link_to event_favorites_path(event), method: :post, remote: true do %>
-                    <i class="far fa-heart"></i>
-                  <% end %>
-                <% end %>
-              <% else %>
-                <%= link_to event_favorites_path(event), method: :post do %>
-                  <i class="far fa-heart"></i>
-                <% end %>
-              <% end %>
-            </div>
-            <h6><%= event.title %></h6>
-            <div class="card-info2">
-              <p><%= event.organization.name %></p>
-              <p><%= event.capacity %> spots</p>
-            </div>
-          </div>
-        </div>
+        <%= render "event_card", event: event %>
       <% end %>
     <% end %>
+    <div class="centered-button-container">
+      <%= link_to map_path do %>
+        <a href="/map" class="map-view-button sticky"><i class="far fa-map"></i>  Map View</a>
+      <% end %>
+    </div>
   </div>
-</div>
 </div>

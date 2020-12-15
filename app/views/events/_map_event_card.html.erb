@@ -1,0 +1,18 @@
+<%= link_to event_path(event), class: 'link-style' do %>
+  <div class="event-card map-event-card">
+    <% if event.photos.attached? %>
+       <img src="<%= cl_image_path event.photos.first.key %>" alt="..." id="event-image">
+      <% else %>
+       <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607524305/nx5c2nwp3ragtvuihxeui53bqcph.jpg" id="event-image">
+      <% end %>
+    <div class="card-information">
+      <div class="card-info" id="event_<%= event.id %>">
+        <p id="calendar-in-map"><i class="far fa-calendar-alt"></i>  <%= event.start_time.strftime("%A, %b %d") %></p>
+      </div>
+      <h6><%= event.title %></h6>
+      <div class="card-info2">
+        <p class="font-weight-light"><%= event.organization.name %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
