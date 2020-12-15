@@ -1,12 +1,31 @@
 <div class="nav-container-purple">
-  <div class="logo-login-purple">
+  <div class="logo-purple">
     <a href="/"><img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607954811/Vector_1_k2lco5.png" width="17" height="17" alt=""> Upfluential</a>
-    <p class= "login">
+  </div>
+  <div class="dropdown">
+    <div href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <% if user_signed_in? %>
-          <%= link_to "log out", destroy_user_session_path, method: :delete%>
+        <% if current_user.photo.attached? %>
+          <img class="avatar"  src=" <%= cl_image_path current_user.photo.key%> " alt="face">
+        <% else %>
+          <div class="no-pic-header-avatar">
+          </div>
+        <% end %>
       <% else %>
-          <%= link_to "login", new_user_session_path %>
+        <%= link_to "Login", new_user_session_path %>
       <% end %>
-    </p>
+    </div>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+      <% if user_signed_in? %>
+        <% if current_user.organization.nil? %>
+          <p><%= link_to "Log out", destroy_user_session_path, method: :delete %></p>
+        <% else %>
+          <p><%= link_to "Post an event", new_event_path %></p>
+          <p><%= link_to "Log out", destroy_user_session_path, method: :delete %></p>
+        <% end %>
+      <% else %>
+        <p><%= link_to "Login", new_user_session_path %></p>
+      <% end %>
+    </div>
   </div>
 </div>

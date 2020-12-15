@@ -1,21 +1,47 @@
-.logo-login-purple {
-  padding-top: 10px;
+.nav-container-purple {
+  margin: auto;
   display: flex;
   justify-content: space-between;
   background: $body-color;
 }
 
-.nav-container-purple {
-  margin: auto;
+.logo-purple {
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
   p, a {
-   padding-right: 10px;
-   padding-left: 20px;
-   padding-bottom: 5px;
-   color: $light;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-left: 20px;
+    padding-bottom: 5px;
+    color: $light;
   }
+}
+
+.dropdown{
+  padding-top: 7px;
+  padding-right: 20px;
+  padding-bottom: 5px;
 }
 
 .login {
   font-weight: lighter;
   font-size: 14px;
+}
+
+.dropdown-menu{
+  p, a{
+    color: $body-color;
+    padding-left: 10px;
+    font-size: 14px;
+  }
+  .dropdown-menu-right{
+    .show{
+      display: block;
+      min-width: 8rem;
+      margin: 0.5rem 0 0;
+      border-radius: 10px;
     }
+  }
+}
+
