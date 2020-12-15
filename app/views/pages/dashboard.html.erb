@@ -12,7 +12,7 @@
 </div>
   <div class="personal-vol-info">
     <% if current_user.hours_volunteered > 0 %>
-        <p><%= current_user.hours_volunteered %> hours of volunteering</p>
+        <p><%= current_user.hours_volunteered %><span class="font-weight-light"> hours of volunteering • </span> <%= current_user.bookings.count %> <span class="font-weight-light">different charities</span></p>
       <% else %>
         <p>You don't have any volunteer hours logged yet.</p>
     <% end %>
