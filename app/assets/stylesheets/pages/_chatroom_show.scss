@@ -1,0 +1,49 @@
+.chat-back-button{
+  margin-right: 10px;
+}
+
+.fa-chevron-left{
+  font-size: 14px;
+}
+
+.chat-container {
+  height: 76vh;
+}
+
+.sticky-message {
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 60px;
+  width: 325px;
+}
+
+.chat-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#messages{
+  // margin-bottom: 70px;
+  // margin-top: 30px;
+  max-height: 68vh;
+  overflow-y: scroll;
+}
+
+.message-container-current-user{
+  display: block;
+  width: 70%;
+  float: right;
+  p{
+    font-size: $label;
+  }
+}
+
+.message-container-other-user {
+  display: block;
+  width: 70%;
+  float: left;
+  p{
+    font-size: $label;
+  }
+}
