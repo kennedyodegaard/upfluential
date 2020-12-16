@@ -17,6 +17,9 @@
         <p>You don't have any volunteer hours logged yet.</p>
     <% end %>
   </div>
+  <div>
+    <%= link_to "Download my certificate", certificate_path(:format => :pdf) , class: "primary-button p-2", target: "_blank" %>
+  </div>
   <div class="status-card">
     <div class="dashboard-cards upcoming">
       <h1 class="mb-0"><%= current_user.events.size - current_user.events.completed.size %></h1>
