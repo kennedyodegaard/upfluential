@@ -50,3 +50,23 @@ p{
   display: flex;
   justify-content: center;
 }
+
+.more-event-button{
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 12px;
+  background-color: white;
+  border: 2px solid #F86D70;
+  color: #F86D70;
+  text-align: center;
+  display: block;
+  text-decoration: none !important;
+  a {
+    color:  #F86D70;
+  }
+}
+
+.more-event-button:hover {
+  border: 2px solid #747272;
+  opacity: 0.2;
+}
