@@ -6,12 +6,15 @@ class User < ApplicationRecord
   has_many :events
   has_many :messages
   has_many :bookings
-  has_many :events, through: :bookings
+  has_many :booked_events, through: :bookings, source: :event
+  has_many :chatrooms, through: :booked_events
 
   has_one :organization
 
   has_one_attached :photo
   acts_as_favoritor
+  acts_as_target
+
 
   def hours_volunteered
     sum = 0

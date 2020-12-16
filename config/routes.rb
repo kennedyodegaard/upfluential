@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get 'chatroom', to: 'chatrooms#show'
   end
 
-  resources :chatrooms, only: [] do
+  resources :chatrooms, only: [:index] do
     resources :messages, only: [:create]
   end
 

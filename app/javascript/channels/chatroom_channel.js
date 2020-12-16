@@ -9,9 +9,14 @@ const initChatroomCable = () => {
       received(data) {
          // called when data is broadcast in the cable
         messagesContainer.insertAdjacentHTML("beforeend", data)
+        clearInput();
       },
     });
   }
 }
 
-export { initChatroomCable };
+ const clearInput = () => {
+   const messageInput = document.getElementById("message_content");
+   messageInput.value = ' ';
+ }
+export { initChatroomCable, clearInput };
