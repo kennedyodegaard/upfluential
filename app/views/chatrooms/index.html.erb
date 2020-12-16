@@ -1,0 +1,23 @@
+<div class="main-container">
+	<h1>Chatrooms</h1>
+  <% @chatrooms.each do |chatroom| %>
+			<div class="event-card">
+				<% if chatroom.event.photos.attached? %>
+					<img src="<%= cl_image_path chatroom.event.photos.first.key %>" alt="..." id="event-image">
+				<% else %>
+					<img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607524305/nx5c2nwp3ragtvuihxeui53bqcph.jpg" id="event-image">
+				<% end %>
+				<div class="card-information">
+					<div class="card-info" id="event_<%= chatroom.event.id %>">
+						<p><i class="far fa-calendar-alt"></i>  <%= chatroom.event.start_time.strftime("%A, %b %d") %></p>
+					</div>
+					<h6><%= link_to chatroom.event.title, event_chatroom_path(chatroom.event) %></h6>
+					<div class="card-info2">
+						<p><%= chatroom.event.organization.name %></p>
+						<p><%= chatroom.event.bookings.count %> attendees</p>
+					</div>
+				</div>
+			</div>
+	<% end %>
+</div>
+

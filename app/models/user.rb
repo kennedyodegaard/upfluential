@@ -6,7 +6,8 @@ class User < ApplicationRecord
   has_many :events
   has_many :messages
   has_many :bookings
-  has_many :events, through: :bookings
+  has_many :booked_events, through: :bookings, source: :event
+  has_many :chatrooms, through: :booked_events
 
   has_one :organization
 
