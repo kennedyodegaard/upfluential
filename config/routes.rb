@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   get 'organizations/:id', to: 'organizations#show', as: :organization
   delete 'events/:event_id/favorites', to: "favorites#destroy", as: 'event_favorite'
   get 'map', to: "events#map"
-  
-  
+  get 'certificate', to: 'certificates#show'
+
+
 
 end
