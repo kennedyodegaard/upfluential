@@ -14,7 +14,7 @@ const initGlide = () => {
         after: 50
       },
       gap: 10
-    })
+    }).mount()
   }
 }
 
