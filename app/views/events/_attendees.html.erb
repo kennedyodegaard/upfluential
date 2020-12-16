@@ -1,7 +1,5 @@
-
-
-<div class="cards-container mt-2">
-      <% events.each do |event|  %>
+<div class="dashboard-cards-container mt-2">
+      <% events[0..1].each do |event|  %>
           <div class="event-card-attendees">
             <div class="content-flex">
             <% if event.photos.attached? %>
@@ -49,6 +47,61 @@
             </div>
        </div>
       <% end %>
+
+      <div class="hidden-events d-none">
+         <% events[2..-1].each do |event|  %>
+          <div class="event-card-attendees">
+            <div class="content-flex">
+            <% if event.photos.attached? %>
+              <img src="<%= cl_image_path event.photos.first.key %>" alt="..." id="event-image">
+              <% else %>
+              <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607524305/nx5c2nwp3ragtvuihxeui53bqcph.jpg" id="event-image">
+              <% end %>
+              <div class="card-information">
+                <div class="card-info" id="event_<%= event.id %>">
+                  <p><i class="far fa-calendar-alt"></i>  <%= event.start_time.strftime("%A, %b %d") %></p>
+                    <% if current_user.favorited?(event) %>
+                      <%= link_to event_favorite_path(event), method: :delete do %>
+                        <i class="fas fa-heart"></i>
+                      <% end %>
+                    <% else %>
+                      <%= link_to event_favorites_path(event), method: :post do %>
+                        <i class="far fa-heart"></i>
+                      <% end %>
+                    <% end %>
+                </div>
+                <h6><%= event.title %></h6>
+                <div class="card-info2">
+                  <p><%= event.organization.name %></p>
+                  <p><%= event.capacity %> spots</p>
+                </div>
+            </div>
+              </div>
+              <div class="arrow-down-attendees">
+              <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="event-attendees d-none">
+                <h3>Who's coming</h3>
+                <% if event.bookings.empty? %>
+                  <p>No volunteers yet!</p>
+                <% else %>  
+                  <div class="user-grid">
+                    <% event.bookings.each do |booking| %>
+                    <div class="user-box">
+                      <img class="avatar-event" src=" <%= cl_image_path booking.user.photo.key %> " alt="face">
+                      <p class="name-tag"><%= booking.user.first_name %></p>
+                    </div>
+                    <% end %>
+                  </div>
+                <% end %>  
+            </div>
+       </div>
+      <% end %>
+
+      </div>
+       <% if events.size >= 3 %>
+        <div class="more-event-button" id="more-events-button">More Events</div>
+       <% end %>
     </div>
 
 
