@@ -1,14 +1,14 @@
+<%= render 'shared/logo-login-white' %>
 <div class="main-container">
-  <%= render 'shared/logo-login-white' %>
-  <h1 class="mt-4 mb-4">Tell us about your event</h1>
+  <h2 class="mt-4 mb-4">Tell us about your event</h2>
   <div class="create-event-form">
   <%= simple_form_for(@event) do |f| %>
     <%= f.input :title , input_html: {class: "rounded-search"} %>
     <%= f.input :description, input_html: {class: "rounded-input"} %>
     <%= f.input :category, collection: Event.categories, input_html: {class: "rounded-input"}%>
     <%= f.input :capacity, input_html: {class: "rounded-input"} %>
-    <%= f.input :start_time, input_html: {class: "rounded-input"} %>
-    <%= f.input :end_time, input_html: {class: "rounded-input"} %>
+    <%= f.input :start_time, as: :string, required: false, input_html: {class: "datepicker rounded-input"} %>
+    <%= f.input :end_time, as: :string, required: false, input_html: {class: "datepicker rounded-input"} %>
     <%= f.input :location, input_html: {class: "rounded-input"} %>
     <div id="map" class="mb-3"
        style="width: 100%; height: 200px;"
