@@ -49,6 +49,7 @@
       <% end %>
 
       <div class="hidden-events d-none">
+        <% unless events.size <= 3 %>
          <% events[2..-1].each do |event|  %>
           <div class="event-card-attendees">
             <div class="content-flex">
@@ -96,7 +97,8 @@
                 <% end %>  
             </div>
        </div>
-      <% end %>
+        <% end %>
+      <% end %>  
 
       </div>
        <% if events.size >= 3 %>
