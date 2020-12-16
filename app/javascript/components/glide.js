@@ -1,4 +1,4 @@
-import Glide, { Arrows } from '@glidejs/glide'
+import Glide from '@glidejs/glide'
 
 const initGlide = () => {
   if (document.querySelector('.glide')) {
@@ -14,7 +14,7 @@ const initGlide = () => {
         after: 50
       },
       gap: 10
-    }).mount({ Arrows })
+    })
   }
 }
 
