@@ -17,10 +17,10 @@ class Event < ApplicationRecord
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
-  
+
 
   validates :category, inclusion: { in: ["community", "environment", "youth", "seniors", "animals", "LGBTQ+", "culture", "outdoors", "indoors", "virtual", "sports"] }
-  
+
   scope :completed, -> {where("end_time < ?", Time.now)}
 
   validates_length_of :title, maximum: 28
@@ -51,7 +51,7 @@ class Event < ApplicationRecord
   end
 
   def already_joined?(user)
-    user.bookings.any? { |booking| booking.event == self}
+    user.nil? ? false : user.bookings.any? { |booking| booking.event == self}
   end
 
   def cta_content(user)

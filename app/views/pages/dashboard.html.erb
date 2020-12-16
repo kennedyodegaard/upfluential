@@ -25,21 +25,22 @@
 
   <div class="status-card">
     <div class="dashboard-cards upcoming">
-      <h1 class="mb-0"><%= current_user.events.size - current_user.events.completed.size %></h1>
+      <h1 class="mb-0"><%= current_user.booked_events.size - current_user.booked_events.completed.size %></h1>
       <p>upcoming events</p>
     </div>
 
     <div class="dashboard-cards completed disable">
-      <h1 class="mb-0"><%= current_user.events.completed.size %></h1>
+      <h1 class="mb-0"><%= current_user.booked_events.completed.size %></h1>
       <p>Completed Events</p>
     </div>
   </div>
-
-  <div class="dashboard-cards-my-event disable">
-    <h1 class="mb-0"><%= current_user.organization.events.size %></h1>
-    <p>My Events</p>
-  </div>
-
+  <% unless current_user.organization.nil? %>
+    <div class="dashboard-cards-my-event disable">
+        <h1 class="mb-0"><%= current_user.organization.events.size %></h1>
+        <p>My Events</p>
+      </div>
+    </div>
+  <% end %>
   <div class="upcoming-events">
     <%= render 'events/event_list', events: @upcoming_events%>
   </div>
@@ -59,6 +60,6 @@
   <br>
   <br>
   <br>
-  
+
 </div>
 

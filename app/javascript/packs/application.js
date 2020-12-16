@@ -39,7 +39,7 @@ import { showAttendees } from '../components/show_attendees';
 import { showEvents } from '../components/show_more_events';
 
 import { initGlide } from '../components/glide';
-import { initChatroomCable } from '../channels/chatroom_channel';
+import { initChatroomCable, clearInput } from '../channels/chatroom_channel';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -52,4 +52,6 @@ document.addEventListener('turbolinks:load', () => {
   initGlide();
   initChatroomCable();
   showEvents();
+  clearInput();
 });
+

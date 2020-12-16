@@ -1,4 +1,4 @@
-import Glide, { Arrows } from '@glidejs/glide'
+import Glide from '@glidejs/glide'
 
 const initGlide = () => {
   if (document.querySelector('.glide')) {
@@ -10,11 +10,11 @@ const initGlide = () => {
       perView: 1,
         // set a value to show the previous and next slides peeking in
       peek: {
-        before: 0,
+        before: 50,
         after: 50
       },
       gap: 10
-    }).mount({ Arrows })
+    }).mount()
   }
 }
 
