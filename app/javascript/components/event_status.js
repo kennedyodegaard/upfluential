@@ -1,12 +1,12 @@
 
-const upcomingButton = document.querySelector(".dashboard-cards.upcoming");
-const completedButton = document.querySelector(".dashboard-cards.completed");
-const  upcomingEvents = document.querySelector(".upcoming-events");
-const  completedEvents = document.querySelector(".completed-events");
-const myEventsButton = document.querySelector(".dashboard-cards-my-event")
-const myEvents = document.querySelector(".my-events")
 
 const checkActivityStatus = () => {
+  const upcomingButton = document.querySelector(".dashboard-cards.upcoming");
+  const completedButton = document.querySelector(".dashboard-cards.completed");
+  const  upcomingEvents = document.querySelector(".upcoming-events");
+  const  completedEvents = document.querySelector(".completed-events");
+  const myEventsButton = document.querySelector(".dashboard-cards-my-event")
+  const myEvents = document.querySelector(".my-events")
     if (upcomingEvents) {
       upcomingButton.addEventListener('click', (event) =>  {
         upcomingEvents.classList.remove("d-none");
