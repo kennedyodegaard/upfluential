@@ -1,15 +1,16 @@
 <%= render 'shared/logo-login-white' %>
 <div class="main-container">
-<%# here comes the avatar %>
-<div class="welcome">
-  <h3><span class="font-weight-light">Hello</span> <%= current_user.first_name %></h3>
-  <% if current_user.photo.attached? %>
-    <img class="avatar-dashboard avatar"  src=" <%= cl_image_path current_user.photo.key%> " alt="face">
-  <% else %>
-    <div class="avatar-dashboard no-pic-avatr">
-    </div>
-  <% end %>
-</div>
+
+  <div class="welcome">
+    <h3><span class="font-weight-light">Hello</span> <%= current_user.first_name %></h3>
+    <% if current_user.photo.attached? %>
+      <img class="avatar-dashboard avatar"  src=" <%= cl_image_path current_user.photo.key%> " alt="face">
+    <% else %>
+      <div class="avatar-dashboard no-pic-avatr">
+      </div>
+    <% end %>
+  </div>
+
   <div class="personal-vol-info">
     <% if current_user.hours_volunteered > 0 %>
         <p><%= current_user.hours_volunteered %><span class="font-weight-light"> hours of volunteering • </span> <%= current_user.bookings.count %> <span class="font-weight-light">different charities</span></p>
@@ -17,14 +18,17 @@
         <p>You don't have any volunteer hours logged yet.</p>
     <% end %>
   </div>
+
   <div>
     <%= link_to "Download my certificate", certificate_path(:format => :pdf) , class: "primary-button p-2", target: "_blank" %>
   </div>
+
   <div class="status-card">
     <div class="dashboard-cards upcoming">
       <h1 class="mb-0"><%= current_user.events.size - current_user.events.completed.size %></h1>
       <p>upcoming events</p>
     </div>
+
     <div class="dashboard-cards completed disable">
       <h1 class="mb-0"><%= current_user.events.completed.size %></h1>
       <p>Completed Events</p>
@@ -40,12 +44,15 @@
   <div class="upcoming-events">
     <%= render 'events/event_list', events: @upcoming_events%>
   </div>
-   <div class="completed-events d-none">
+
+  <div class="completed-events d-none">
     <%= render 'events/event_list', events: @completed_events%>
   </div>
+
   <div class="my-events d-none">
     <%= render 'events/attendees', events: @user_events%>
   </div>
+
   <%= link_to "Edit your profile", edit_user_registration_path, class: "primary-button wit mb-2"%>
   <% unless current_user.organization.nil? %>
     <%= link_to "My organization", organization_path(current_user.organization), class: "primary-button wit"%>
@@ -53,4 +60,5 @@
   <br>
   <br>
   <br>
+
 </div>

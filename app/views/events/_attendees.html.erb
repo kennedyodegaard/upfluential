@@ -33,16 +33,23 @@
               <i class="fas fa-chevron-down"></i>
               </div>
               <div class="event-attendees d-none">
-              <h3>Who's coming</h3>
-              <div class="user-grid">
-                <% event.bookings.each do |booking| %>
-                <div class="user-box">
-                  <img class="avatar-event" src=" <%= cl_image_path booking.user.photo.key %> " alt="face">
-                  <p class="name-tag"><%= booking.user.first_name %></p>
-                </div>
-                <% end %>
-              </div>
+                <h3>Who's coming</h3>
+                <% if event.bookings.empty? %>
+                  <p>No volunteers yet!</p>
+                <% else %>  
+                  <div class="user-grid">
+                    <% event.bookings.each do |booking| %>
+                    <div class="user-box">
+                      <img class="avatar-event" src=" <%= cl_image_path booking.user.photo.key %> " alt="face">
+                      <p class="name-tag"><%= booking.user.first_name %></p>
+                    </div>
+                    <% end %>
+                  </div>
+                <% end %>  
             </div>
        </div>
       <% end %>
     </div>
+
+
+
