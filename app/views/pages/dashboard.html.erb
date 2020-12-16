@@ -30,11 +30,13 @@
       <p>Completed Events</p>
     </div>
   </div>
-  <div class="dashboard-cards-my-event disable">
-      <h1 class="mb-0"><%= current_user.organization.events.size %></h1>
-      <p>My Events</p>
+  <% unless current_user.organization.nil? %>
+    <div class="dashboard-cards-my-event disable">
+        <h1 class="mb-0"><%= current_user.organization.events.size %></h1>
+        <p>My Events</p>
+      </div>
     </div>
-  </div>
+  <% end %>
   <div class="upcoming-events">
     <%= render 'events/event_list', events: @upcoming_events%>
   </div>
