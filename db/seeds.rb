@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
+Chatroom.destroy_all
 Booking.destroy_all
 Event.destroy_all
 Organization.destroy_all
@@ -102,7 +103,7 @@ event4.save
 
 event5 = Event.new(title:"La Troballa store management", capacity: 10, description: "La Troballa is Arrels' occupational workshop, where people who live or have lived on the streets regain skills through artisanal production. Volunteer Manage the sale of products made in the workshop through the digital store and, later, the physical store that is under construction. Daily shifts 7days a week.
 ", location: "Barcelona", category: "community", start_time: "17/12/2020 5:00pm", end_time: "17/12/2020 8:00pm", user: user3, organization: organization3)
-event_photo5 = URI.open("https://images.unsplash.com/photo-1473187983305-f615310e7daa?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTl8fHN0b3JlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
+event_photo5 = URI.open("https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8c3RvcmV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
 event5.photos.attach(io: event_photo5, filename: "event_photo5.png", content_type: "image/png")
 event5.save
 
