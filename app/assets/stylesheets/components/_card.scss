@@ -55,6 +55,7 @@ i:hover{
 
 a:hover{
   text-decoration: none !important;
+  color: white;
 }
 
 #heart{
@@ -170,4 +171,18 @@ a:hover{
   margin-right: 15px;
   border: 1px solid #747272;
   opacity: 0.2;
+}
+
+.card-title-truncate {
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-label-truncate {
+  width: 146px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
