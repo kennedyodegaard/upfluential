@@ -10,7 +10,7 @@ const initGlide = () => {
       perView: 1,
         // set a value to show the previous and next slides peeking in
       peek: {
-        before: 0,
+        before: 50,
         after: 50
       },
       gap: 10
