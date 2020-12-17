@@ -41,8 +41,11 @@ import { showEvents } from '../components/show_more_events';
 import { initGlide } from '../components/glide';
 import { initChatroomCable, clearInput } from '../channels/chatroom_channel';
 
+import { initFlatpickr } from '../plugins/init_flatpickr';
+
 
 document.addEventListener('turbolinks:load', () => {
+  initFlatpickr();
   initAutocomplete();
   initMapbox();
   setUpEventSearchPills();
