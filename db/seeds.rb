@@ -191,6 +191,31 @@ event_photo8 = URI.open("https://images.unsplash.com/photo-1584039305076-83c699b
 event8.photos.attach(io: event_photo8, filename: "event_photo8.png", content_type: "image/png")
 event8.save
 
+# 6
+user6 = User.new(first_name: "Sefi", last_name: "Cohen", email: "sefi@gmail.com", password: "password", bio: "I have been living Madrid for the past 7 years. I fell in love with the city the moment I landed here back in 2013.
+Up untill recently I worked for the Israeli embassy here and was stationed in Madrid airport. I am passionate about saving the world and animals")
+user_avatar6 = URI.open("https://avatars0.githubusercontent.com/u/67965039?v=4")
+user6.photo.attach(io: user_avatar6, filename: "user_avatar6.png", content_type: "image/png")
+user6.save
+
+# organization
+organization6 = Organization.new(name: "Adopta tu Perro", website: "www.adoptatuperro.es", description: "The fundamental mission of the Barcelona Zoo Foundation is the promotion and development of the Barcelona Zoo and it does so by promoting new research, conservation, education and awareness-raising projects in order to become, from the point of view of public service, an instrument aimed at the preservation of biodiversity, the generation of knowledge and awareness of the protection and preservation of ecosystems and the interrelationship between the different forms of life that occur.", location: "Parc de la Ciutadella, 08003 Barcelona", user: user6)
+organization_logo6 = URI.open("https://www.flsida.org/sites/default/files/logotipo.png")
+organization6.logo.attach(io: organization_logo6, filename: "organization_logo6.png", content_type: "image/png")
+banner6 = URI.open("https://images.unsplash.com/photo-1534567153574-2b12153a87f0?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8em9vfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
+organization6.photos.attach(io: banner6, filename: "banner6.png", content_type: "image/png")
+organization6.save
+
+# event
+event9= Event.new(title:"Dog Adoption Event", capacity: 20, description: "​Animal Rescue is dedicated to the promotion of care and welfare of companion animals in Upper Kittitas County. Based out of Roslyn, WA, our organization provides a multitude of services including:spay/neuter vouchers, help with vet care for low income families, pet adoption, fostering, supplying pet food for those in need, reuniting lost and found pets with their owners, humane education.", location: "Carrer de Ferran 20, 08002 Barcelona", category: "animals", start_time: "3/01/2021 9:00am", end_time: "3/01/2021 9:00pm", user: user6, organization: organization6)
+event_photo9 = URI.open("https://images.unsplash.com/photo-1444212477490-ca407925329e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8ZG9nc3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
+event9.photos.attach(io: event_photo9, filename: "event_photo9.png", content_type: "image/png")
+event9.save
+
+event10= Event.new(title:"Clean the Forrest", capacity: 20, description: "​Animal Rescue is dedicated to the promotion of care and welfare of companion animals in Upper Kittitas County. Based out of Roslyn, WA, our organization provides a multitude of services including:spay/neuter vouchers, help with vet care for low income families, pet adoption, fostering, supplying pet food for those in need, reuniting lost and found pets with their owners, humane education.", location: "Carrer de Ferran 20, 08002 Barcelona", category: "animals", start_time: "3/01/2021 9:00am", end_time: "3/01/2021 9:00pm", user: user6, organization: organization6)
+event_photo10 = URI.open("https://images.unsplash.com/photo-1605374929764-78c41c71c7e4?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTUwfHxhbmltYWxzfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
+event10.photos.attach(io: event_photo10, filename: "event_photo10.png", content_type: "image/png")
+event10.save
 
 
 # booking
