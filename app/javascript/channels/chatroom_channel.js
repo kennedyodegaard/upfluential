@@ -31,8 +31,12 @@ const initChatroomCable = () => {
   }
 }
 
- const clearInput = () => {
-   const messageInput = document.getElementById("message_content");
-   messageInput.value = '';
- }
+const clearInput = () => {
+ const messageInput = document.getElementById("message_content");
+
+  if (messageInput) {
+    messageInput.value = '';
+  }
+}
+
 export { initChatroomCable, clearInput };
