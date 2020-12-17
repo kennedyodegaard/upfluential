@@ -1,20 +1,37 @@
 <%= render 'shared/logo-login-purple' %>
 <% if @event.photos.attached? %>
-  <div class="show-banner-img" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4),
+  <div class="show-banner-org" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4),
   rgba(0, 0, 0, 0.4)), url('<%= cl_image_path @event.photos.first.key %>');" id="show-image">
-  </div>
+    <div class=show-banner-content>
+      <h1><%= @event.title %></h1>
+      <p>Organized by <%= link_to organization_path(@event.organization) do %><%= @event.organization.name %></p><% end %>
+    </div>
+
 <% else %>
-  <div class="show-banner-img">
     <img src="https://images.unsplash.com/photo-1561026555-13539e82532f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=967&q=80" id="show-image">
-  </div>
 <% end %>
+    <div class="dropdown">
+        <a class="share-btn d-flex align-items-center justify-content-center" href="#" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-share-alt"></i>
+        </a>
+
+        <div class="dropdown-menu social-menu" aria-labelledby="dropdownMenuButton">
+          <div class="social-media social-media-showpage">
+            <h2><i class="fab fa-facebook"></i></h2>
+            <a href="whatsapp://send?text=Join me at <%= @event.title %> - <%= request.original_url %>"><h2><i class="fab fa-whatsapp"></i></h2></a>
+            <h2><i class="fab fa-twitter"></i></h2>
+          </div>
+        </div>
+      </div>
+
+
+  </div>
+
+
 
 <div class="main-container">
   <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, :back, class: "back-btn" %>
-  <div class=show-banner-content>
-    <h1><%= @event.title %></h1>
-    <p>Organized by <%= link_to organization_path(@event.organization) do %><%= @event.organization.name %></p><% end %>
-  </div>
+
 
   <div class="edit-delete-details">
     <div class="event-details">
@@ -40,7 +57,7 @@
 
 
   <h3>About the event</h3>
-  <p class="font-weight-light" style="font-size: 14px;"><%= @event.description %></p>
+  <p class="font-weight-light mb-4" style="font-size: 16px;"><%= @event.description %></p>
   <div class="glide">
     <div class="glide__track" data-glide-el="track">
       <ul class="glide__slides">

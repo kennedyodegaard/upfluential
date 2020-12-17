@@ -7,7 +7,7 @@
   <% end %>
 </div>
 <div class="main-container position-relative">
-  <div class="search-form position-absolute" style="z-index: 1100; width: 325px; left: 0; right: 0; margin: auto; top: -22.5px;">
+  <div class="search-form position-absolute" style="z-index: 1100; left: 0; right: 0; margin: auto; top: -22.5px;">
      <%= form_tag events_path, method: :get, class: "events-search-form" do %>
       <%= text_field_tag :query,
         params[:query],
@@ -48,10 +48,13 @@
       <% end %>
       </div>
     </div>
-  <div class="cards-container mt-2">
-    <% @events.each do |event|  %>
-      <%= link_to event_path(event), class: 'link-style' do %>
-        <%= render "event_card", event: event %>
+
+  <div class="cards-container mt-2">  
+    <% @events.order(start_time: :asc).each do |event|  %>
+      <% unless event.completed? %>
+        <%= link_to event_path(event), class: 'link-style' do %>
+          <%= render "event_card", event: event %>
+        <% end %>
       <% end %>
     <% end %>
     <div class="centered-button-container">

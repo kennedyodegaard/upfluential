@@ -38,6 +38,7 @@
                   <div class="user-grid">
                     <% event.bookings.each do |booking| %>
                     <div class="user-box">
+
                     <% if booking.user.photo.attached? %>
                       <img class="avatar-event" src=" <%= cl_image_path booking.user.photo.key %> " alt="face">
                       <% else %>

@@ -3,7 +3,7 @@
   <h4 class="mt-2">My Favorite Events</h4>
 </div>
 <div class="main-container position-relative">
-    <div class="search-form position-absolute" style="z-index: 1100; width: 325px; left: 0; right: 0; margin: auto; top: -22.5px;">
+    <div class="search-form position-absolute" style="z-index: 1100; left: 0; right: 0; margin: auto; top: -22.5px;">
        <%= form_tag events_path, method: :get, class: "events-search-form" do %>
         <%= text_field_tag :query,
           params[:query],
@@ -36,7 +36,7 @@
           <h6><%= event.title %></h6>
           <div class="card-info2">
             <p><%= event.organization.name %></p>
-            <p><%= event.capacity %> spots</p>
+            <p class="text-align-right"><%= event.capacity %> spots</p>
           </div>
         </div>
       </div>

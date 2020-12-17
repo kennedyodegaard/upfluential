@@ -1,12 +1,19 @@
 <%= render 'shared/logo-login-purple' %>
 
 <% if @organization.photos.attached? %>
-  <div class="show-banner-img" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4),
+  <div class="show-banner-org" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4),
   rgba(0, 0, 0, 0.4)), url('<%= cl_image_path @organization.photos.first.key %>');" id="org-image">
+    <div class="show-banner-content">
+      <h1><%= @organization.name %></h1>
+      <a href="https://<%=@organization.website%>" target="_blank"> <%= @organization.website %></a>
+    </div>
   </div>
 <% else %>
-  <div class="show-banner-img">
-    <img src="https://images.unsplash.com/photo-1561026555-13539e82532f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=967&q=80" id="show-image">
+  <div class="show-banner-org" style="background-image: https://images.unsplash.com/photo-1561026555-13539e82532f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=967&q=80" id="show-image">
+    <div class="show-banner-content">
+      <h1><%= @organization.name %></h1>
+      <a href="https://<%=@organization.website%>" target="_blank"> <%= @organization.website %></a>
+    </div>
   </div>
 <% end %>
 
@@ -14,11 +21,6 @@
 
 <div class="main-container">
   <%= link_to '<i class="fas fa-chevron-left"></i>'.html_safe, :back, class: "back-btn" %>
-  <div class="show-banner-content">
-    <h1><%= @organization.name %></h1>
-    <a href="https://<%=@organization.website%>" target="_blank"> <%= @organization.website %></a>
-
-  </div>
 
 
   <div class="edit-delete-details">
@@ -26,17 +28,15 @@
       <div class="location-icon">
         <i class="fas fa-map-marker-alt"></i>
         <div>
-          <p><%= @organization.location.split(" ")[0...-2].join(" ") %></p>
-          <p><%= @organization.location.split(" ")[-2..-1].join(" ") %></p>
+          <p><%= @organization.location%></p>
         </div>
       </div>
-      <p><i class="fas fa-link"></i><%= @organization.website %></p>
     </div>
   </div>
 
   <div class="about">
     <h3>About Our Organization</h3>
-    <p class="font-weight-light" style="font-size: 14px;"><%= @organization.description %></p>
+    <p class="font-weight-light mb-4" style="font-size: 16px;"><%= @organization.description %></p>
   </div>
 
   <div class="events">

@@ -23,14 +23,14 @@
               <h6><%= event.title %></h6>
               <div class="card-info2">
                 <p><%= event.organization.name %></p>
-                <p><%= event.capacity %> spots</p>
+                <p class="text-align-right"><%= event.capacity %> spots</p>
               </div>
             </div>
           </div>
         <% end %>
       <% end %>
       <div class="hidden-events d-none">
-        <% unless events.size <= 3 %>
+        <% unless events.size < 3 %>
           <% events[2..-1].each do |event|  %>
             <%= link_to event_path(event), class: 'link-style' do %>
               <div class="event-card">
@@ -61,7 +61,7 @@
               </div>
             <% end %>
           <% end %>
-        <% end %>  
+        <% end %>
       </div>
       <% if events.size >= 3 %>
         <div class="more-event-button" id="more-events-button">More Events</div>
