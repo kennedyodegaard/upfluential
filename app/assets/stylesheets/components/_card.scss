@@ -128,14 +128,14 @@ a:hover{
   color: #3F3D56;
   margin-right: 15px;
   border: 1px solid #747272;
-  opacity: 0.2;
+  // opacity: 0.2;
 }
 
 .dashboard-cards.completed.disable {
   background-color: white;
   color: #3F3D56;
   border: 1px solid #FDDBDB;
-  opacity: 0.2;
+  // opacity: 0.2;
   border: 1px solid #747272;
 }
 
@@ -152,6 +152,7 @@ a:hover{
   color: white;
   margin-right: 15px;
   border: 1px solid #747272;
+  font-weight: lighter;
 }
 
 .dashboard-cards-my-event.disable {
@@ -167,5 +168,5 @@ a:hover{
   color: #3F3D56;
   margin-right: 15px;
   border: 1px solid #747272;
-  opacity: 0.2;
+  // opacity: 0.2;
 }
