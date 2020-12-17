@@ -1,4 +1,4 @@
-<%= wicked_pdf_stylesheet_link_tag('application') %>
+<%= wicked_pdf_stylesheet_link_tag('certificate') %>
 
 <div class="certificate-container">
   <div>
@@ -19,14 +19,15 @@
     <div class="avatar-dashboard no-pic-avatr">
     </div>
   <% end %>
+
   <div class="personal-vol-info">
     <% if current_user.hours_volunteered > 0 %>
-        <p><%= current_user.hours_volunteered %><span class="font-weight-light"> hours of volunteering for </span><%= current_user.bookings.count %> <span class="font-weight-light">different charities</span></p>
+        <p><%= current_user.hours_volunteered %><span class="font-weight-light"> hours of volunteering for </span><%= current_user.bookings.count %> <span class="font-weight-light">different charities:</span></p>
       <% else %>
         <p>You don't have any volunteer hours logged yet.</p>
     <% end %>
   </div>
-<!--   <p><%= current_user.events.completed.count%></p>
- --></div>
-
-
+  <% current_user.events.completed.each do |event|  %>
+    <p><%= event.title %> <%= event.start_time %></p>
+  <% end %>
+ </div>
