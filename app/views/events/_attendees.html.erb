@@ -27,14 +27,18 @@
               </div>
             </div>
               </div>
-              <div class="arrow-down-attendees">
-              <i class="fas fa-chevron-down"></i>
-              </div>
+
+                <div class="arrow-down-attendees">
+                  <% if event.bookings.any? && event.bookings.select { |e| e.attending? }.any? %>
+                  <i class="fas fa-chevron-down"></i>
+                   <% end %>
+                </div>
+
               <div class="event-attendees d-none">
                 <h3>Who's coming</h3>
                 <% if event.bookings.empty? %>
                   <p>No volunteers yet!</p>
-                <% else %>  
+                <% else %>
                   <div class="user-grid">
                     <% event.bookings.each do |booking| %>
                     <div class="user-box">
@@ -47,7 +51,7 @@
                     </div>
                     <% end %>
                   </div>
-                <% end %>  
+                <% end %>
             </div>
        </div>
       <% end %>
@@ -82,14 +86,18 @@
                 </div>
             </div>
               </div>
+
               <div class="arrow-down-attendees">
-              <i class="fas fa-chevron-down"></i>
+                <% if event.bookings.any? && event.bookings.select { |e| e.attending? }.any? %>
+                <i class="fas fa-chevron-down"></i>
+                <% end %>
               </div>
+
               <div class="event-attendees d-none">
                 <h3>Who's coming</h3>
                 <% if event.bookings.empty? %>
                   <p>No volunteers yet!</p>
-                <% else %>  
+                <% else %>
                   <div class="user-grid">
                     <% event.bookings.each do |booking| %>
                     <div class="user-box">
@@ -98,11 +106,11 @@
                     </div>
                     <% end %>
                   </div>
-                <% end %>  
+                <% end %>
             </div>
        </div>
         <% end %>
-      <% end %>  
+      <% end %>
 
       </div>
        <% if events.size >= 3 %>
