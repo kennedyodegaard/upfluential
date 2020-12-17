@@ -1,0 +1,25 @@
+.social-media, .social-media a{
+  color: $body-color;
+  justify-content: center;
+  padding: 0 10px;
+  line-height: 0.3;
+  text-align: center;
+
+  p, i {
+    size: 20px;
+  }
+}
+
+.social-media h2 {
+  margin-bottom: 0;
+}
+
+.social-menu {
+  min-width: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.social-media-showpage h2 {
+  color: white;
+}

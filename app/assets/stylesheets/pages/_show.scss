@@ -2,9 +2,12 @@
   margin-bottom: 0px !important;
 }
 
-.show-banner-img{
+.show-banner-org {
   width: 100%;
-  position: relative;
+  display: flex;
+  align-items: flex-end;
+  color: white;
+  opacity: 0.9;
 }
 
 #show-image{
@@ -13,11 +16,10 @@
 }
 
 .show-banner-content {
-  position: absolute;
-  top: 165px;
-  left: 20px;
   color: white;
-  opacity: 0.9;
+  margin-left: 30px;
+  margin-bottom: 30px;
+
 
 
   h1 {
