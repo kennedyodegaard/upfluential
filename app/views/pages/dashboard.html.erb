@@ -19,9 +19,12 @@
     <% end %>
   </div>
 
-  <div>
-    <%= link_to "Download my certificate", certificate_path(:format => :pdf) , class: "primary-button p-2", target: "_blank" %>
-  </div>
+  <ul class="text-center list-unstyled">
+    <li ><i class="fas fa-user-edit mr-1" style="color: #F96D6F;"></i>  <%= link_to "Edit your profile", edit_user_registration_path%></li>
+    <% unless current_user.organization.nil? %>
+      <li><i class="fas fa-landmark mr-1" style="color: #F96D6F;"></i> <%= link_to "My organization", organization_path(current_user.organization)%></li>
+    <% end %>
+  </ul>
 
   <div class="status-card">
     <div class="dashboard-cards upcoming">
@@ -52,10 +55,10 @@
     <%= render 'events/attendees', events: @user_events%>
   </div>
 
-  <%= link_to "Edit your profile", edit_user_registration_path, class: "primary-button wit mb-2"%>
-  <% unless current_user.organization.nil? %>
-    <%= link_to "My organization", organization_path(current_user.organization), class: "primary-button wit"%>
-  <% end %>
+
+   <div>
+    <%= link_to "Download my certificate", certificate_path(:format => :pdf) , class: "primary-button p-2", target: "_blank" %>
+  </div>
   <br>
   <br>
   <br>
