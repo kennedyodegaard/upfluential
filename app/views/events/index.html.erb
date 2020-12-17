@@ -50,8 +50,10 @@
     </div>
   <div class="cards-container mt-2">
     <% @events.each do |event|  %>
+      <% unless event.completed? %>
       <%= link_to event_path(event), class: 'link-style' do %>
         <%= render "event_card", event: event %>
+      <% end %>
       <% end %>
     <% end %>
     <div class="centered-button-container">
