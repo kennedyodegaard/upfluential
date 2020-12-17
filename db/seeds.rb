@@ -117,7 +117,7 @@ past_event4.save
 
 
 past_event5 = Event.new(title:"La Troballa store management", capacity: 12, description: "La Troballa is Arrels' occupational workshop, where people who live or have lived on the streets regain skills through artisanal production. Volunteer Manage the sale of products made in the workshop through the digital store and, later, the physical store that is under construction. Daily shifts 7days a week.
-", location: "Barcelona", category: "community", start_time: "17/01/2020 5:00pm", end_time: "17/01/20208:00pm", user: user3, organization: organization3)
+", location: "Barcelona", category: "community", start_time: "17/01/2020 5:00pm", end_time: "17/01/2020 8:00pm", user: user3, organization: organization3)
 past_event_photo5 = URI.open("https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8c3RvcmV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
 past_event5.photos.attach(io: past_event_photo5, filename: "past_event_photo5.png", content_type: "image/png")
 past_event5.save
@@ -193,7 +193,7 @@ event8.save
 
 
 
-# booking 
+# booking
 
 booking1 = Booking.create!(user: user1 , event: past_event1)
 booking2 = Booking.create!(user: user2 , event: past_event1)
