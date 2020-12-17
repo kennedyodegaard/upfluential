@@ -63,4 +63,8 @@ class Event < ApplicationRecord
       "<p class=\"mb-0\">#{self.available_spots} SPOTS LEFT <i class=\"fas fa-user-plus\"></i></p>"
     end
   end
+
+  # def sort_by_date
+  #   self.order(start_time: :asc)
+  # end
 end

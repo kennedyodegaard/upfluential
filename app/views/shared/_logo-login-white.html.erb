@@ -2,19 +2,21 @@
   <div class="logo-white">
     <a href="/"><img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607956799/Vector_1logo-purple_todvjd.png" width="17" height="17" alt=""> Upfluential</a>
   </div>
+  <% if user_signed_in? %>
     <div class="dropdown">
-    <div href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <% if user_signed_in? %>
+      <div href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <% if current_user.photo.attached? %>
           <img class="avatar"  src=" <%= cl_image_path current_user.photo.key%> " alt="face">
         <% else %>
           <div class="no-pic-header-avatar">
           </div>
         <% end %>
-      <% else %>
-        <%= link_to "Login", new_user_session_path %>
-      <% end %>
+      </div>
+  <% else %>
+    <div class="login">
+      <%= link_to "Login", new_user_session_path %>
     </div>
+  <% end %>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
       <% if user_signed_in? %>
         <% if current_user.organization.nil? %>
@@ -27,6 +29,5 @@
         <p><%= link_to "Login", new_user_session_path %></p>
       <% end %>
     </div>
-  </div>
   </div>
 </div>

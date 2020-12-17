@@ -10,7 +10,7 @@ const showAttendees = () => {
       });
     });
   }
-}
+};
 
 
 export { showAttendees };

@@ -36,12 +36,16 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { checkActivityStatus } from '../components/event_status';
 
 import { showAttendees } from '../components/show_attendees';
+import { showEvents } from '../components/show_more_events';
 
 import { initGlide } from '../components/glide';
-import { initChatroomCable } from '../channels/chatroom_channel';
+import { initChatroomCable, clearInput } from '../channels/chatroom_channel';
+
+import { initFlatpickr } from '../plugins/init_flatpickr';
 
 
 document.addEventListener('turbolinks:load', () => {
+  initFlatpickr();
   initAutocomplete();
   initMapbox();
   setUpEventSearchPills();
@@ -50,4 +54,7 @@ document.addEventListener('turbolinks:load', () => {
   showAttendees();
   initGlide();
   initChatroomCable();
-})
+  showEvents();
+  clearInput();
+});
+

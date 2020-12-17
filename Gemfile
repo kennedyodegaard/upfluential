@@ -33,6 +33,8 @@ gem 'devise'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
+gem 'flatpickr'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
@@ -68,3 +70,6 @@ gem 'cloudinary', '~> 1.16.0'
 gem 'geocoder'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'pg_search', '~> 2.3.0'
+
+# Added by Sefi
+gem 'activity_notification'
