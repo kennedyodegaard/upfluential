@@ -1,0 +1,5 @@
+meta_product_name: "Upfluential"
+meta_title: "Upfluential - Connecting good people with good causes"
+meta_description: "A unique platform with a huge variety of volunteering opportunities"
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards

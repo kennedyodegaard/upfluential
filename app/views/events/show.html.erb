@@ -1,3 +1,7 @@
+<% content_for :meta_title, "#{@event.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @event.description %>
+<% content_for :meta_image, cl_image_path(@event.photo.path) %>
+
 <%= render 'shared/logo-login-purple' %>
 <% if @event.photos.attached? %>
   <div class="show-banner-img" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4),
