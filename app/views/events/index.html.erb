@@ -48,6 +48,7 @@
       <% end %>
       </div>
     </div>
+
   <div class="cards-container mt-2">  
     <% @events.order(start_time: :asc).each do |event|  %>
       <% unless event.completed? %>
