@@ -48,12 +48,13 @@
       <% end %>
       </div>
     </div>
-  <div class="cards-container mt-2">
-    <% @events.each do |event|  %>
+
+  <div class="cards-container mt-2">  
+    <% @events.order(start_time: :asc).each do |event|  %>
       <% unless event.completed? %>
-      <%= link_to event_path(event), class: 'link-style' do %>
-        <%= render "event_card", event: event %>
-      <% end %>
+        <%= link_to event_path(event), class: 'link-style' do %>
+          <%= render "event_card", event: event %>
+        <% end %>
       <% end %>
     <% end %>
     <div class="centered-button-container">
