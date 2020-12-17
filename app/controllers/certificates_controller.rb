@@ -12,11 +12,11 @@ class CertificatesController < ApplicationController
     # end
 
     respond_to do |format|
-    format.html
-    format.pdf do
-    render pdf: "kennedy.pdf", template: 'certificates/show.html.erb'
-    # , orientation: 'Landscape'
-    end
+      format.html
+      format.pdf do
+        render pdf: "upfluential_certificate.pdf", template: 'certificates/show.html.erb'
+        # , orientation: 'Landscape'
+      end
     end
   end
 end
