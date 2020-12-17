@@ -2,11 +2,17 @@
 
 <div class="certificate-container">
   <div>
-    <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607956799/Vector_1logo-purple_todvjd.png" width="25" height="25" alt="">
-    <h1>Upfluential</h1>
-    <h2>VOLUNTEER HISTORY FOR</h2>
+    <a href="/"><img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607956799/Vector_1logo-purple_todvjd.png" width="40" height="40" alt=""> Upfluential</a>
   </div>
-  <h3><span class="font-weight-light"><%= current_user.first_name %> </span> <%= current_user.last_name %></h3>
+
+  <div class="mt-1">
+    <h1 style="letter-spacing: 2px;">CERTIFICATE</h2>
+    <h3 class="font-weight-light" style="letter-spacing: 4px;">OF COMPLETION</h3>
+  </div>
+
+  <h1 style="font-size: 200px; line-height: 0.1;">-</h1>
+
+  <h3><span class="font-weight-light mt-1"><%= current_user.first_name %> </span> <%= current_user.last_name %></h3>
   <% if current_user.photo.attached? %>
     <img class="avatar-dashboard avatar"  src=" <%= cl_image_path current_user.photo.key%> " alt="face">
   <% else %>
@@ -15,9 +21,12 @@
   <% end %>
   <div class="personal-vol-info">
     <% if current_user.hours_volunteered > 0 %>
-        <h3><%= current_user.hours_volunteered %><span class="font-weight-light"> hours of volunteering for </span><%= current_user.bookings.count %> <span class="font-weight-light">different charities</span></h3>
+        <p><%= current_user.hours_volunteered %><span class="font-weight-light"> hours of volunteering for </span><%= current_user.bookings.count %> <span class="font-weight-light">different charities</span></p>
       <% else %>
         <p>You don't have any volunteer hours logged yet.</p>
     <% end %>
   </div>
-</div>
+<!--   <p><%= current_user.events.completed.count%></p>
+ --></div>
+
+
