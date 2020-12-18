@@ -138,7 +138,7 @@ banner4 = URI.open("https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7
 organization4.photos.attach(io: banner4, filename: "banner4.png", content_type: "image/png")
 organization4.save
 
-# event
+# events
 event6 = Event.new(title:"Spinning against AIDS", capacity: 16, description: "this is a 12-hour marathon of indoor cycling (commonly known as spinning), organised by the Fundació Lluita contra la Sida [Fight Against AIDS Foundation], with the aim of raising funds to finance their research projects. Symbolically, a round-the-world trip will be completed, passing through a variety of places and discovering how HIV/AIDS is affecting them.
 A virtual route will be selected, passing through countries, cities and regions, with the aim of completing a trip around the world. Each session will have a different profile, according to the territory involved and its geographical characteristics. In each one, participants will be motivated by different sensations that aim to complete their experience: these include props, decorations, images projected onto a giant screen located on stage and a selection of music that reflects each geographic area’s style and tendencies.", location: "Carrer de Ferran 20, 08002 Barcelona", category: "LGBTQ+", start_time: "12/01/2021 9:00am", end_time: "12/01/2021 9:00pm", user: user4, organization: organization4)
 event_photo6 = URI.open("https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8Y29tbXVuaXR5fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
