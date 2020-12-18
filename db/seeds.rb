@@ -242,5 +242,4 @@ booking7 = Booking.create!(user: user1 , event: past_event4)
 booking8 = Booking.create!(user: user1 , event: past_event5)
 booking9 = Booking.create!(user: user1 , event: past_event6)
 booking10 = Booking.create!(user: user1 , event: past_event7)
-booking11 = Booking.create!(user: user1 , event: past_event3)
-booking12 = Booking.create!(user: user1 , event: past_event2)
+
