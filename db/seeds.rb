@@ -230,7 +230,7 @@ event10.photos.attach(io: event_photo10, filename: "event_photo10.png", content_
 event10.save
 
 
-# booking
+# bookings
 
 booking1 = Booking.create!(user: user1 , event: past_event1)
 booking2 = Booking.create!(user: user2 , event: past_event1)
