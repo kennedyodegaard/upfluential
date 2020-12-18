@@ -15,7 +15,9 @@
 
   <div class="chatroom-input mb-5">
     <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-      <%= f.input :content, label: false, placeholder: "Message #{@event.title}", input_html: {class: "sticky-message"} %>
+      <div class="input-container">
+        <%= f.input :content, label: false, placeholder: "Message #{@event.title}", input_html: {class: "sticky-message"} %>
+      </div>
     <% end %>
   </div>
 </div>
