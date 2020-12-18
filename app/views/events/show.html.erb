@@ -4,7 +4,7 @@
   rgba(0, 0, 0, 0.4)), url('<%= cl_image_path @event.photos.first.key %>');" id="show-image">
     <div class=show-banner-content>
       <h1><%= @event.title %></h1>
-      <p>Organized by <%= link_to organization_path(@event.organization) do %><%= @event.organization.name %></p><% end %>
+      <p class="secondary-button"><%= link_to organization_path(@event.organization) do %><%= @event.organization.name %></p><% end %>
     </div>
 
 <% else %>

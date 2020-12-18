@@ -4,15 +4,13 @@
   <div class="show-banner-org" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4),
   rgba(0, 0, 0, 0.4)), url('<%= cl_image_path @organization.photos.first.key %>');" id="org-image">
     <div class="show-banner-content">
-      <h1><%= @organization.name %></h1>
-      <a href="https://<%=@organization.website%>" target="_blank"> <%= @organization.website %></a>
+      <h1 style="margin-right: 2px;"><%= @organization.name %></h1>
     </div>
   </div>
 <% else %>
   <div class="show-banner-org" style="background-image: https://images.unsplash.com/photo-1561026555-13539e82532f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=967&q=80" id="show-image">
     <div class="show-banner-content">
       <h1><%= @organization.name %></h1>
-      <a href="https://<%=@organization.website%>" target="_blank"> <%= @organization.website %></a>
     </div>
   </div>
 <% end %>
@@ -25,6 +23,10 @@
 
   <div class="edit-delete-details">
     <div class="org-detail">
+      <div class="location-icon">
+        <i class="fas fa-link"></i>
+        <p><%= @organization.website %></p>
+      </div>
       <div class="location-icon">
         <i class="fas fa-map-marker-alt"></i>
         <div>
