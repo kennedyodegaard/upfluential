@@ -21,7 +21,7 @@ user1.photo.attach(io: user_avatar1, filename: "user_avatar1.png", content_type:
 user1.save
 
 # organization
-organization1 = Organization.new(name: "Clean Beach Initiative", website: "https://www.cleanbeachinitiative.org", description: "Since we first founded the Clean Beach Initiative our main goal is to keep our beaches clean, to fight the pollution of our oceans and to raise awareness in our society. Only by joining efforts with the community and fostering direct action will we be able to tackle this issue. Since October 2018 we are working to protect our environment, by cleaning the beaches and more importantly by giving a good example.", location: "Carrer de Floridablanca 91, 08015 Barcelona", user: user1)
+organization1 = Organization.new(name: "Clean Beach Initiative", website: "https://www.cleanbeachinitiative.org", description: "Since we first founded the Clean Beach Initiative our main goal is to keep our beaches clean, to fight the pollution of our oceans and to raise awareness in our society. Only by joining efforts with the community and fostering direct action will we be able to tackle this issue. Since October 2020 we are working to protect our environment, by cleaning the beaches and more importantly by giving a good example.", location: "Carrer de Floridablanca 91, 08015 Barcelona", user: user1)
 organization_logo1 = URI.open('https://cleanbeachinitiative.org/wp-content/uploads/2020/04/cropped-CBI-Logo-color3-on-transparent.png')
 organization1.logo.attach(io: organization_logo1, filename: "organization_logo1.png", content_type: "image/png")
 banner1 = URI.open("https://images.unsplash.com/photo-1496737018672-b1a6be2e949c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8YmVhY2h8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60")
@@ -33,6 +33,14 @@ event1 = Event.new(title: "Beach Cleanup in Barceloneta", capacity: 10, descript
 event_photo1 = URI.open('https://cleanbeachinitiative.org/wp-content/uploads/2020/04/EU-Plastic-Ban.jpg')
 event1.photos.attach(io: event_photo1, filename: "event_photo1.png", content_type: "image/png")
 event1.save
+
+event10 = Event.new(title: "Beach Cleanup in Bogatell", capacity: 10, description: "With our group of volunteers we are organizing weekly beach cleanups in Bogatell. We are always looking forward to welcoming new people to our team. So join us in making our planet an even more beautiful place.", location: "Carrer de Floridablanca 91, 08015 Barcelona", category: "community", start_time: "23/12/2020 11:00am", end_time: "23/12/2020 4:00pm", user: user1, organization: organization1)
+event10_photo1 = URI.open("https://www.signupgenius.com/cms/images/groups/beach-clean-up-tips-ideas-article-600x400.jpg")
+event10.photos.attach(io: event10_photo1, filename: "event_photo1.png", content_type: "image/png")
+event10_photo2 = URI.open("https://cdn.shopify.com/s/files/1/0996/1022/articles/person_picking_up_trash.jpg?v=1599675391")
+event10.photos.attach(io: event10_photo2, filename: "event_photo1.png", content_type: "image/png")
+event10_photo3 = URI.open("https://www.khmertimeskh.com/wp-content/uploads/2019/01/P17-feature-pix.jpg")
+event10.photos.attach(io: event10_photo3, filename: "event_photo1.png", content_type: "image/png")
 
 
 # past event
@@ -66,6 +74,10 @@ event2.save
 event3 = Event.new(title:"Digital Literacy for Seniors", capacity: 22, description: "Description: Are you passionate about computers? Do you love teaching? We are looking for 5 volunteers as we begin our new program of digital-literacy. On Thursdays, we will welcome those who need a little bit of help navigating our rapidly changing world of technology. Volunteers will have the opportunity to teach various skills from checking emails, downloading apps, software updates, saving contacts and other basic everyday use of computers and cell-phones as well as other devices. Volunteers will assist with check-in, and in supervising the event as well. It’s super fun and a great opportunity to interact with members of your community!", location: "Carrer de Provença, 480, 08025 Barcelona", category: "community", start_time: "17/02/2021 5:00pm", end_time: "17/02/2021 8:00pm", user: user2, organization: organization2)
 event_photo3 = URI.open("https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1351&q=80")
 event3.photos.attach(io: event_photo3, filename: "event_photo3.png", content_type: "image/png")
+event_photo4 = URI.open("https://kwhs-wpengine.netdna-ssl.com/wp-content/uploads/2020/04/Jordan.png")
+event3.photos.attach(io: event_photo4, filename: "event_photo4.png", content_type: "image/png")
+event_photo5 = URI.open("https://media.npr.org/assets/img/2020/01/15/kendra-gonzales-coaching-linda-haverty-1_wide-16bfd22b1538d9a7218bd0a0dab7bb6228d15e3a-s1600-c85.jpg")
+event3.photos.attach(io: event_photo5, filename: "event_photo4.png", content_type: "image/png")
 event3.save
 
 # past events
@@ -74,7 +86,7 @@ past_event_photo2 = URI.open("https://images.unsplash.com/photo-1533029764620-40
 past_event2.photos.attach(io: past_event_photo2, filename: "past_event_photo2.png", content_type: "image/png")
 past_event2.save
 
-past_event3 = Event.new(title:"Digital Literacy for Seniors", capacity: 15, description: "Description: Are you passionate about computers? Do you love teaching? We are looking for 5 volunteers as we begin our new program of digital-literacy. On Thursdays, we will welcome those who need a little bit of help navigating our rapidly changing world of technology. Volunteers will have the opportunity to teach various skills from checking emails, downloading apps, software updates, saving contacts and other basic everyday use of computers and cell-phones as well as other devices. Volunteers will assist with check-in, and in supervising the event as well. It’s super fun and a great opportunity to interact with members of your community!", location: "Carrer de Provença, 480, 08025 Barcelona", category: "seniors", start_time: "17/09/2020 5:00pm", end_time: "17/09/2020 8:00pm", user: user2, organization: organization2)
+past_event3 = Event.new(title:"Digital Literacy for Seniors", capacity: 15, description: "Are you passionate about computers? Do you love teaching? We are looking for 5 volunteers as we begin our new program of digital-literacy. On Thursdays, we will welcome those who need a little bit of help navigating our rapidly changing world of technology. Volunteers will have the opportunity to teach various skills from checking emails, downloading apps, software updates, saving contacts and other basic everyday use of computers and cell-phones as well as other devices. Volunteers will assist with check-in, and in supervising the event as well. It’s super fun and a great opportunity to interact with members of your community!", location: "Carrer de Provença, 480, 08025 Barcelona", category: "seniors", start_time: "17/09/2020 5:00pm", end_time: "17/09/2020 8:00pm", user: user2, organization: organization2)
 past_event_photo3 = URI.open("https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1351&q=80")
 past_event3.photos.attach(io: past_event_photo3, filename: "past_event_photo3.png", content_type: "image/png")
 past_event3.save
@@ -226,4 +238,9 @@ booking3 = Booking.create!(user: user3 , event: past_event1)
 booking4 = Booking.create!(user: user1 , event: past_event2)
 booking5 = Booking.create!(user: user2 , event: past_event3)
 booking6 = Booking.create!(user: user1 , event: past_event3)
-
+booking7 = Booking.create!(user: user1 , event: past_event1)
+booking8 = Booking.create!(user: user1 , event: past_event3)
+booking9 = Booking.create!(user: user1 , event: past_event2)
+booking10 = Booking.create!(user: user1 , event: past_event1)
+booking11 = Booking.create!(user: user1 , event: past_event3)
+booking12 = Booking.create!(user: user1 , event: past_event2)
