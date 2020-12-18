@@ -13,7 +13,7 @@
 
   <div class="personal-vol-info">
     <% if current_user.hours_volunteered > 0 %>
-        <p><%= current_user.hours_volunteered %><span class="font-weight-light"> hours of volunteering • </span> <%= current_user.booked_events.completed.size %> <span class="font-weight-light">different charities</span></p>
+        <p><%= current_user.hours_volunteered %><span class="font-weight-light"> hours of volunteering • </span> <%= current_user.booked_events.completed.count %> <span class="font-weight-light">different charities</span></p>
       <% else %>
         <p>You don't have any volunteer hours logged yet.</p>
     <% end %>
@@ -28,18 +28,18 @@
 
   <div class="status-card">
     <div class="dashboard-cards upcoming">
-      <h1 class="mb-0"><%= current_user.booked_events.size - current_user.booked_events.completed.size %></h1>
+      <h1 class="mb-0"><%= current_user.booked_events.count - current_user.booked_events.completed.count %></h1>
       <p>upcoming events</p>
     </div>
 
     <div class="dashboard-cards completed disable">
-      <h1 class="mb-0"><%= current_user.booked_events.completed.size %></h1>
+      <h1 class="mb-0"><%= current_user.booked_events.completed.count %></h1>
       <p>Completed Events</p>
     </div>
   </div>
   <% unless current_user.organization.nil? %>
     <div class="dashboard-cards-my-event disable">
-        <h1 class="mb-0 mt-1"><%= current_user.organization.events.size %></h1>
+        <h1 class="mb-0 mt-1"><%= current_user.organization.events.count %></h1>
         <p>My Events</p>
       </div>
   <% end %>

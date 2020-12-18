@@ -1,6 +1,8 @@
 <%= wicked_pdf_stylesheet_link_tag('certificate') %>
 
 <div class="certificate-container">
+  <p><br></p>
+
   <div>
     <a href="/"><img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1607956799/Vector_1logo-purple_todvjd.png" width="40" height="40" alt=""> Upfluential</a>
   </div>
@@ -12,7 +14,12 @@
 
   <h1 style="font-size: 200px; line-height: 0.1;">-</h1>
 
-  <h3><span class="font-weight-light mt-1"><%= current_user.first_name %> </span> <%= current_user.last_name %></h3>
+  <br>
+
+  <h3>
+    <span class="font-weight-light mt-1"> <%= current_user.first_name %> </span> <%= current_user.last_name %>
+  </h3>
+
   <% if current_user.photo.attached? %>
     <img class="avatar-dashboard avatar"  src=" <%= cl_image_path current_user.photo.key%> " alt="face">
   <% else %>
@@ -20,14 +27,33 @@
     </div>
   <% end %>
 
+  <p><br></p>
   <div class="personal-vol-info">
     <% if current_user.hours_volunteered > 0 %>
-        <p><%= current_user.hours_volunteered %><span class="font-weight-light"> hours of volunteering for </span><%= current_user.bookings.count %> <span class="font-weight-light">different charities:</span></p>
-      <% else %>
-        <p>You don't have any volunteer hours logged yet.</p>
+      <p><%= current_user.hours_volunteered %><span class="font-weight-light"> hours of volunteering for </span><%= current_user.booked_events.completed.size %> <span class="font-weight-light">different charities</span></p>
+    <% else %>
+      <p>You don't have any volunteer hours logged yet.</p>
     <% end %>
   </div>
-  <% current_user.events.completed.each do |event|  %>
-    <p><%= event.title %> <%= event.start_time %></p>
-  <% end %>
- </div>
+
+  <span>
+    Most recent events:
+    <%= current_user.booked_events.completed.first(3).map{|e| "#{e.title} #{e.start_time.strftime("%d/%m/%Y")}"}.join(', ')  %>
+
+    <% if current_user.booked_events.completed.count > 3 %>
+      and <%= current_user.booked_events.completed[3..].count %> more
+    <% end %>
+  </span>
+
+  <p>See the full history at http://www.upfluential.org/<%= current_user.first_name.downcase %><%= current_user.last_name.downcase %></p>
+
+
+  <p><br></p>
+  <p><br></p>
+
+  <div class="footer">
+    <img src="https://res.cloudinary.com/kennedyodegaard/image/upload/v1608230842/OFFICIAL_CERTIFICATE_1_edzkwz.png" height="180" alt="">
+    <p>Certificate issued on: <%= Time.now.strftime("%d/%m/%Y") %></p>
+  </div>
+</div>
+

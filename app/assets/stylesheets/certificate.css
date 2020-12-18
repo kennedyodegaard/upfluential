@@ -9,12 +9,26 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Roboto", "sans-serif";
 }
 
+.certificate ul {
+  padding-left:20px;
+  list-style:none;
+}
+
 .certificate-container {
-  padding: 100px;
+
   height: 100%;
-  width:100%;
-  border: 20px solid #4B488F;
+  width: 100%;
+  border: 20px solid #403D57;
   text-align: center;
+  display: flex;
+}
+
+.badge {
+  align-items: left;
+}
+
+.certificate-container span {
+  color: #403D56;
 }
 
 .certificate-container h1 {
@@ -46,12 +60,36 @@ h1, h2, h3, h4, h5, h6 {
 
 .certificate-container p {
   font-size: 24px;
+  color: #403D57;
 }
 
 .avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+}
+
+.footer {
+  background: #EDEDF4;
+  width: 100%;
+  height: 130px;
+  position: relative;
+}
+
+.footer img {
+  position: absolute;
+  top: -87px;
+  left: 50px;
+  float: left;
+  margin-bottom: 80px;
+}
+
+.footer p {
+  position: absolute;
+  bottom: 0px;
+  right: 20px;
+  float: right;
+  color: #403D57;
 }
 
 .avatar-dashboard {
