@@ -44,7 +44,7 @@ event10.photos.attach(io: event10_photo3, filename: "event_photo1.png", content_
 
 
 # past event
-past_event1 = Event.new(title: "Beach Cleanup in Barceloneta", capacity: 10, description: "With our group of volunteers we are organizing weekly beach cleanups in Barcelona. We are always looking forward to welcoming new people to our team. So join us in making our planet an even more beautiful place.", location: "Carrer de Floridablanca 91, 08015 Barcelona", category: "community", start_time: "03/12/2021 11:00am", end_time: "03/12/2021 4:00pm", user: user1, organization: organization1)
+past_event1 = Event.new(title: "Beach Cleanup in Barceloneta", capacity: 10, description: "With our group of volunteers we are organizing weekly beach cleanups in Barcelona. We are always looking forward to welcoming new people to our team. So join us in making our planet an even more beautiful place.", location: "Carrer de Floridablanca 91, 08015 Barcelona", category: "community", start_time: "03/12/2020 11:00am", end_time: "03/12/2020 4:00pm", user: user1, organization: organization1)
 past_event_photo1 = URI.open('https://cleanbeachinitiative.org/wp-content/uploads/2020/04/EU-Plastic-Ban.jpg')
 past_event1.photos.attach(io: past_event_photo1, filename: "past_event_photo1.png", content_type: "image/png")
 past_event1.save
@@ -243,3 +243,4 @@ booking8 = Booking.create!(user: user1 , event: past_event5)
 booking9 = Booking.create!(user: user1 , event: past_event6)
 booking10 = Booking.create!(user: user1 , event: past_event7)
 
+puts "done seedinggggggg"
